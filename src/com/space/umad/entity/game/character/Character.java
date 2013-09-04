@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -44,6 +43,7 @@ public class Character implements Comparable<Character>
 	private static final String JSON_IDJOB = "idJob";
 	private static final String JSON_IDUSER = "idUser";
 	private static final String JSON_CHARACTERSKILLS = "skills";
+	private static final String JSON_CHARACTERBANKS = "banks";
 	private static final String JSON_CHARACTERSHIP = "ships";
 	private static final String JSON_CHARACTERSHIPCOUNT = "shipsCount";
 	
@@ -78,6 +78,10 @@ public class Character implements Comparable<Character>
 	@OneToMany(mappedBy = "mCharacter")
 	@LazyCollection(LazyCollectionOption.FALSE)
     private Collection<CharacterSkill> mCharacterSkills;
+	
+	@OneToMany(mappedBy = "mCharacter")
+	@LazyCollection(LazyCollectionOption.FALSE)
+    private Collection<CharacterBank> mCharacterBanks;
 	
 	@OneToMany(mappedBy = "mCharacter")
 	@LazyCollection(LazyCollectionOption.FALSE)
@@ -121,6 +125,7 @@ public class Character implements Comparable<Character>
 		this.setJob(DaoFactory.getJobDao().findById(json.optInt(JSON_IDJOB, -1)));
 		this.setUser(DaoFactory.getUserDao().findById(json.optInt(JSON_IDUSER, -1)));
 		this.setCharacterSkills(json.optJSONArray(JSON_CHARACTERSKILLS));
+		this.setCharacterBanks(json.optJSONArray(JSON_CHARACTERBANKS));
 		this.setCharacterShip(json.optJSONArray(JSON_CHARACTERSHIP));
 	}
 	
@@ -302,6 +307,30 @@ public class Character implements Comparable<Character>
 				this.mCharacterShip.add(new CharacterShip(json.optJSONObject(i)));
 			}
 		}
+	}	
+
+	public Collection<CharacterBank> getCharacterBanks()
+	{
+		return mCharacterBanks;
+	}
+
+	public void setCharacterBanks(Collection<CharacterBank> mCharacterBanks) 
+	{
+		this.mCharacterBanks = mCharacterBanks;
+	}
+	
+	public void setCharacterBanks(JSONArray json)
+	{
+		if(this.mCharacterBanks == null)
+			this.mCharacterBanks = new ArrayList<CharacterBank>();
+		
+		if(json != null)
+		{
+			for(int i = 0; i < json.length(); i++)
+			{
+				this.mCharacterBanks.add(new CharacterBank(json.optJSONObject(i)));
+			}
+		}
 	}
 	
 
@@ -358,6 +387,15 @@ public class Character implements Comparable<Character>
 				index++;
 			}
 			json.put(JSON_CHARACTERSKILLS, skills);
+			
+			JSONArray banks = new JSONArray();
+			index = 0;
+			for (CharacterBank currentBank : this.getCharacterBanks())
+			{
+				banks.put(index, currentBank.toJson());
+				index++;
+			}
+			json.put(JSON_CHARACTERBANKS, banks);
 			
 			JSONArray ships = new JSONArray();
 			index = 0;

@@ -14,6 +14,7 @@ import org.codehaus.jettison.json.JSONObject;
 
 import com.space.umad.dao.DaoFactory;
 import com.space.umad.entity.game.character.Character;
+import com.space.umad.entity.game.character.CharacterBank;
 import com.space.umad.entity.game.character.CharacterSkill;
 import com.space.umad.entity.game.ship.CharacterShip;
 import com.space.umad.entity.game.ship.ShipModel;
@@ -49,6 +50,22 @@ public class CharacterResource
 				{
 					current.setCharacter(newCharacter);
 					DaoFactory.getCharacterSkillDao().add(current);
+				}
+				
+				// Create character banks
+				CharacterBank bankOne = new CharacterBank();
+				bankOne.setCharacter(newCharacter);
+				bankOne.setNumber(1);
+				bankOne.setUnlock(true);
+				DaoFactory.getCharacterBankDao().add(bankOne);
+				
+				for(int i = 2; i < 6; i++)
+				{
+					CharacterBank currentBank = new CharacterBank();
+					currentBank.setCharacter(newCharacter);
+					currentBank.setNumber(i);
+					currentBank.setUnlock(false);
+					DaoFactory.getCharacterBankDao().add(currentBank);
 				}
 				
 				// Create character ship
