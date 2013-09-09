@@ -5,6 +5,7 @@ import com.space.umad.dao.game.ItemStackDao;
 import com.space.umad.dao.game.ItemTierDao;
 import com.space.umad.dao.game.ItemTypeDao;
 import com.space.umad.dao.game.character.CharacterBankDao;
+import com.space.umad.dao.game.character.CharacterBankItemStackDao;
 import com.space.umad.dao.game.character.CharacterDao;
 import com.space.umad.dao.game.character.CharacterSkillDao;
 import com.space.umad.dao.game.character.JobDao;
@@ -29,6 +30,7 @@ import com.space.umad.dao.jpa.game.JpaItemStackDao;
 import com.space.umad.dao.jpa.game.JpaItemTierDao;
 import com.space.umad.dao.jpa.game.JpaItemTypeDao;
 import com.space.umad.dao.jpa.game.character.JpaCharacterBankDao;
+import com.space.umad.dao.jpa.game.character.JpaCharacterBankItemStackDao;
 import com.space.umad.dao.jpa.game.character.JpaCharacterDao;
 import com.space.umad.dao.jpa.game.character.JpaCharacterSkillDao;
 import com.space.umad.dao.jpa.game.character.JpaJobDao;
@@ -428,6 +430,22 @@ public class DaoFactory
 		{
 		case TYPE_DAO_JPA:
 			return new JpaCharacterBankDao();
+			
+		case TYPE_DAO_JDBC:
+			break;
+			
+		case TYPE_DAO_JAXB:
+			break;
+		}
+		return null;
+	}
+	
+	public static CharacterBankItemStackDao getCharacterBankItemStackDao()
+	{
+		switch(Constants.TYPE_DAO_USED)
+		{
+		case TYPE_DAO_JPA:
+			return new JpaCharacterBankItemStackDao();
 			
 		case TYPE_DAO_JDBC:
 			break;
