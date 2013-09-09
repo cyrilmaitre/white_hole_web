@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -79,7 +80,7 @@ public class Character implements Comparable<Character>
 	@LazyCollection(LazyCollectionOption.FALSE)
     private Collection<CharacterSkill> mCharacterSkills;
 	
-	@OneToMany(mappedBy = "mCharacter")
+	@OneToMany(mappedBy = "mCharacter", cascade={CascadeType.ALL})
 	@LazyCollection(LazyCollectionOption.FALSE)
     private Collection<CharacterBank> mCharacterBanks;
 	
