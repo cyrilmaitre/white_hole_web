@@ -59,7 +59,7 @@ public class Character implements Comparable<Character>
 	private int mSkillPoints;
 	private int mLevel;
 	private int mExperience;
-	private long mCredit;
+	private double mCredit;
 	private Calendar mDateCreation;
 	private long mTimePlayed;
 	private boolean mAlive;
@@ -118,7 +118,7 @@ public class Character implements Comparable<Character>
 		this.setSkillPoints(json.optInt(JSON_SKILLPOINTS, 0));
 		this.setLevel(json.optInt(JSON_LEVEL, 0));
 		this.setExperience(json.optInt(JSON_EXPERIENCE, 0));
-		this.setCredit(json.optLong(JSON_CREDIT, 0));
+		this.setCredit(json.optDouble(JSON_CREDIT, 0));
 		this.setDateCreation(dateCreation);
 		this.setTimePlayed(json.optLong(JSON_TIMEPLAYED, 0));
 		this.setAlive(json.optBoolean(JSON_ALIVE, true));
@@ -192,12 +192,12 @@ public class Character implements Comparable<Character>
 		this.mExperience = mExperience;
 	}
 	
-	public long getCredit() 
+	public double getCredit() 
 	{
 		return mCredit;
 	}
 
-	public void setCredit(long mCredit) 
+	public void setCredit(double mCredit) 
 	{
 		this.mCredit = mCredit;
 	}
