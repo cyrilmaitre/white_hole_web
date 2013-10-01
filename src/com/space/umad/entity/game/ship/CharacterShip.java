@@ -29,6 +29,8 @@ public class CharacterShip
 {
 	// Define
 	private static final String JSON_IDCHARACTERSHIP = "idCharacterShip";
+	private static final String JSON_NAME = "name";
+	private static final String JSON_SKILLPOINTS = "skillPoints";
 	private static final String JSON_LEVEL = "level";
 	private static final String JSON_EXPERIENCE = "experience";
 	private static final String JSON_PILOTED = "piloted";
@@ -43,6 +45,8 @@ public class CharacterShip
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int mIdCharacterShip;
 	
+	private String mName;
+	private int mSkillPoints;
 	private int mLevel;
 	private int mExperience;
 	private boolean mPiloted;
@@ -68,6 +72,8 @@ public class CharacterShip
 	public CharacterShip()
 	{
 		this.mIdCharacterShip = -1;
+		this.mName = "";
+		this.mSkillPoints = 0;
 		this.mLevel = 0;
 		this.mExperience = 0;
 		this.mPiloted = true;
@@ -77,6 +83,8 @@ public class CharacterShip
 	public CharacterShip(JSONObject json)
 	{
 		this.setIdCharacterShip(json.optInt(JSON_IDCHARACTERSHIP, -1));
+		this.setName(json.optString(JSON_NAME, ""));
+		this.setSkillPoints(json.optInt(JSON_SKILLPOINTS, 0));
 		this.setLevel(json.optInt(JSON_LEVEL, 0));
 		this.setExperience(json.optInt(JSON_EXPERIENCE, 0));
 		this.setPiloted(json.optBoolean(JSON_PILOTED, false));
@@ -96,6 +104,26 @@ public class CharacterShip
 	public void setIdCharacterShip(int mIdCharacterShip) 
 	{
 		this.mIdCharacterShip = mIdCharacterShip;
+	}
+
+	public String getName() 
+	{
+		return mName;
+	}
+
+	public void setName(String mName) 
+	{
+		this.mName = mName;
+	}
+
+	public int getSkillPoints()
+	{
+		return mSkillPoints;
+	}
+
+	public void setSkillPoints(int mSkillPoints)
+	{
+		this.mSkillPoints = mSkillPoints;
 	}
 
 	public int getLevel() 
@@ -215,6 +243,8 @@ public class CharacterShip
 		try
 		{
 			json.put(JSON_IDCHARACTERSHIP, this.getIdCharacterShip());
+			json.put(JSON_NAME, this.getName());
+			json.put(JSON_SKILLPOINTS, this.getSkillPoints());
 			json.put(JSON_LEVEL, this.getLevel());
 			json.put(JSON_EXPERIENCE, this.getExperience());
 			json.put(JSON_PILOTED, this.isPiloted());

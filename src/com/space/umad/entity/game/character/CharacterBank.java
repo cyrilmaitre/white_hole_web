@@ -19,7 +19,6 @@ import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
 import com.space.umad.dao.DaoFactory;
-import com.space.umad.entity.game.ship.CharacterShipItemStack;
 
 @Entity
 @Table(name = "spaceumad_characterbank")

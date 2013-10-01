@@ -40,6 +40,7 @@ public class Character implements Comparable<Character>
 	private static final String JSON_DATECREATION = "dateCreation";
 	private static final String JSON_TIMEPLAYED = "timePlayed";
 	private static final String JSON_ALIVE = "alive";
+	private static final String JSON_HANGARSPACE = "hangarSpace";
 	private static final String JSON_IDRACE = "idRace";
 	private static final String JSON_IDJOB = "idJob";
 	private static final String JSON_IDUSER = "idUser";
@@ -63,6 +64,7 @@ public class Character implements Comparable<Character>
 	private Calendar mDateCreation;
 	private long mTimePlayed;
 	private boolean mAlive;
+	private int mHangarSpace;
 	
 	@ManyToOne
     @JoinColumn(name="mIdRace")
@@ -102,6 +104,7 @@ public class Character implements Comparable<Character>
 		this.mDateCreation = Calendar.getInstance();
 		this.mTimePlayed = 0;
 		this.mAlive = true;
+		this.mHangarSpace = 0;
 		this.mRace = null;
 		this.mJob = null;
 		this.mUser = null;
@@ -122,6 +125,7 @@ public class Character implements Comparable<Character>
 		this.setDateCreation(dateCreation);
 		this.setTimePlayed(json.optLong(JSON_TIMEPLAYED, 0));
 		this.setAlive(json.optBoolean(JSON_ALIVE, true));
+		this.setHangarSpace(json.optInt(JSON_HANGARSPACE, 0));
 		this.setRace(DaoFactory.getRaceDao().findById(json.optInt(JSON_IDRACE, -1)));
 		this.setJob(DaoFactory.getJobDao().findById(json.optInt(JSON_IDJOB, -1)));
 		this.setUser(DaoFactory.getUserDao().findById(json.optInt(JSON_IDUSER, -1)));
@@ -230,6 +234,16 @@ public class Character implements Comparable<Character>
 	public void setAlive(boolean mAlive) 
 	{
 		this.mAlive = mAlive;
+	}
+
+	public int getHangarSpace() 
+	{
+		return mHangarSpace;
+	}
+
+	public void setHangarSpace(int mHangarSpace) 
+	{
+		this.mHangarSpace = mHangarSpace;
 	}
 
 	public Race getRace() 
@@ -376,6 +390,7 @@ public class Character implements Comparable<Character>
 			json.put(JSON_EXPERIENCE, this.getExperience());
 			json.put(JSON_TIMEPLAYED, this.getTimePlayed());
 			json.put(JSON_ALIVE, this.isAlive());
+			json.put(JSON_HANGARSPACE, this.getHangarSpace());
 			json.put(JSON_IDRACE, this.getRace() != null ? this.getRace().getIdRace() : -1);
 			json.put(JSON_IDJOB, this.getJob() != null ? this.getJob().getIdJob() : -1);
 			json.put(JSON_IDUSER, this.getUser() != null ? this.getUser().getIdUser() : -1);
