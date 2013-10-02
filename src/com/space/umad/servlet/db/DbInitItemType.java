@@ -13,7 +13,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeElementName");
 			itemtype.setDescription("itemTypeElementDescription");
 			itemtype.setParent(null);
-			itemtype.setLeaf(true);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -23,7 +22,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeGemName");
 			itemtype.setDescription("itemTypeGemDescription");
 			itemtype.setParent(null);
-			itemtype.setLeaf(true);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -33,7 +31,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeOreName");
 			itemtype.setDescription("itemTypeOreDescription");
 			itemtype.setParent(null);
-			itemtype.setLeaf(false);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -43,7 +40,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeCalciteName");
 			itemtype.setDescription("itemTypeCalciteDescription");
 			itemtype.setParent(DaoFactory.getItemTypeDao().findById(3));
-			itemtype.setLeaf(true);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -53,7 +49,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeCopperName");
 			itemtype.setDescription("itemTypeCopperDescription");
 			itemtype.setParent(DaoFactory.getItemTypeDao().findById(3));
-			itemtype.setLeaf(true);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -63,7 +58,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeFeldsparName");
 			itemtype.setDescription("itemTypeFeldsparDescription");
 			itemtype.setParent(DaoFactory.getItemTypeDao().findById(3));
-			itemtype.setLeaf(true);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -73,7 +67,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeIronName");
 			itemtype.setDescription("itemTypeIronDescription");
 			itemtype.setParent(DaoFactory.getItemTypeDao().findById(3));
-			itemtype.setLeaf(true);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -83,7 +76,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeMetalName");
 			itemtype.setDescription("itemTypeMetalDescription");
 			itemtype.setParent(DaoFactory.getItemTypeDao().findById(3));
-			itemtype.setLeaf(true);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -93,7 +85,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeOreOtherName");
 			itemtype.setDescription("itemTypeOreOtherDescription");
 			itemtype.setParent(DaoFactory.getItemTypeDao().findById(3));
-			itemtype.setLeaf(true);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -103,7 +94,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeSilicateName");
 			itemtype.setDescription("itemTypeSilicateName");
 			itemtype.setParent(DaoFactory.getItemTypeDao().findById(3));
-			itemtype.setLeaf(true);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -113,7 +103,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeShipName");
 			itemtype.setDescription("itemTypeShipDescription");
 			itemtype.setParent(null);
-			itemtype.setLeaf(false);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -123,7 +112,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeShipStuffName");
 			itemtype.setDescription("itemTypeShipStuffDescription");
 			itemtype.setParent(null);
-			itemtype.setLeaf(false);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -133,7 +121,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeAsteroidScannerName");
 			itemtype.setDescription("itemTypeAsteroidScannerDescription");
 			itemtype.setParent(DaoFactory.getItemTypeDao().findById(12));
-			itemtype.setLeaf(true);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -143,7 +130,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeDistrubtorName");
 			itemtype.setDescription("itemTypeDistrubtorDescription");
 			itemtype.setParent(DaoFactory.getItemTypeDao().findById(12));
-			itemtype.setLeaf(true);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -153,7 +139,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeScannerName");
 			itemtype.setDescription("itemTypeScannerDescription");
 			itemtype.setParent(DaoFactory.getItemTypeDao().findById(12));
-			itemtype.setLeaf(true);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -163,7 +148,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeShipUpgradeName");
 			itemtype.setDescription("itemTypeShipUpgradeDescription");
 			itemtype.setParent(null);
-			itemtype.setLeaf(false);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -173,7 +157,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeArmorUpgradeName");
 			itemtype.setDescription("itemTypeArmorUpgradeDescription");
 			itemtype.setParent(DaoFactory.getItemTypeDao().findById(16));
-			itemtype.setLeaf(true);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -183,7 +166,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeCargoUpgradeName");
 			itemtype.setDescription("itemTypeCargoUpgradeDescription");
 			itemtype.setParent(DaoFactory.getItemTypeDao().findById(16));
-			itemtype.setLeaf(true);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -193,7 +175,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypePropulsionUpgradeName");
 			itemtype.setDescription("itemTypePropulsionUpgradeDescription");
 			itemtype.setParent(DaoFactory.getItemTypeDao().findById(16));
-			itemtype.setLeaf(true);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -203,7 +184,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeShieldUpgradeName");
 			itemtype.setDescription("itemTypeShieldUpgradeDescription");
 			itemtype.setParent(DaoFactory.getItemTypeDao().findById(16));
-			itemtype.setLeaf(true);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -213,7 +193,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeStructureUpgradeName");
 			itemtype.setDescription("itemTypeStructureUpgradeDescription");
 			itemtype.setParent(DaoFactory.getItemTypeDao().findById(16));
-			itemtype.setLeaf(true);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -223,7 +202,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeWeaponUpgradeName");
 			itemtype.setDescription("itemTypeWeaponUpgradeDescription");
 			itemtype.setParent(DaoFactory.getItemTypeDao().findById(16));
-			itemtype.setLeaf(true);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -233,7 +211,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeWeaponName");
 			itemtype.setDescription("itemTypeWeaponDescription");
 			itemtype.setParent(null);
-			itemtype.setLeaf(false);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -243,7 +220,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeWeaponKineticName");
 			itemtype.setDescription("itemTypeWeaponKineticDescription");
 			itemtype.setParent(DaoFactory.getItemTypeDao().findById(23));
-			itemtype.setLeaf(true);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -253,7 +229,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeWeaponLazerName");
 			itemtype.setDescription("itemTypeWeaponLazerDescription");
 			itemtype.setParent(DaoFactory.getItemTypeDao().findById(23));
-			itemtype.setLeaf(true);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -263,7 +238,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeWeaponLauncherName");
 			itemtype.setDescription("itemTypeWeaponLauncherDescription");
 			itemtype.setParent(DaoFactory.getItemTypeDao().findById(23));
-			itemtype.setLeaf(true);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -273,7 +247,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeStationName");
 			itemtype.setDescription("itemTypeStationDescription");
 			itemtype.setParent(null);
-			itemtype.setLeaf(false);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -283,7 +256,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeStationMineralName");
 			itemtype.setDescription("itemTypeStationMineralDescription");
 			itemtype.setParent(DaoFactory.getItemTypeDao().findById(27));
-			itemtype.setLeaf(true);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -293,7 +265,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeStationOrbitalName");
 			itemtype.setDescription("itemTypeStationOrbitalDescription");
 			itemtype.setParent(DaoFactory.getItemTypeDao().findById(27));
-			itemtype.setLeaf(true);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -303,7 +274,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeAmmoName");
 			itemtype.setDescription("itemTypeAmmoDescription");
 			itemtype.setParent(null);
-			itemtype.setLeaf(false);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -313,7 +283,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeAmmoKineticName");
 			itemtype.setDescription("itemTypeAmmoKineticDescription");
 			itemtype.setParent(DaoFactory.getItemTypeDao().findById(30));
-			itemtype.setLeaf(true);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -323,7 +292,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeAmmoLaserName");
 			itemtype.setDescription("itemTypeAmmoLaserDescription");
 			itemtype.setParent(DaoFactory.getItemTypeDao().findById(30));
-			itemtype.setLeaf(true);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -333,7 +301,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeAmmoMissile");
 			itemtype.setDescription("itemTypeAmmoMissileDescription");
 			itemtype.setParent(DaoFactory.getItemTypeDao().findById(30));
-			itemtype.setLeaf(true);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -343,7 +310,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeAmmoRoquet");
 			itemtype.setDescription("itemTypeAmmoRoquetDescription");
 			itemtype.setParent(DaoFactory.getItemTypeDao().findById(30));
-			itemtype.setLeaf(true);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -353,7 +319,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeShipFrigateName");
 			itemtype.setDescription("itemTypeShipFrigateDescription");
 			itemtype.setParent(DaoFactory.getItemTypeDao().findById(11));
-			itemtype.setLeaf(true);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 		
@@ -363,7 +328,6 @@ public class DbInitItemType
 			itemtype.setName("itemTypeShipCruiserName");
 			itemtype.setDescription("itemTypeShipCruiserDescription");
 			itemtype.setParent(DaoFactory.getItemTypeDao().findById(11));
-			itemtype.setLeaf(true);
 			DaoFactory.getItemTypeDao().add(itemtype);
 		}
 	}

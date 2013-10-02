@@ -2,7 +2,9 @@ package com.space.umad.entity.game.ship;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -254,7 +256,9 @@ public class CharacterShip
 			JSONArray weapons = new JSONArray();
 			{
 				int index = 0;
-				for (Weapon currentWeapon : this.getWeapons()) 
+				ArrayList<Weapon> arrayWeapons = new ArrayList<Weapon>(this.getWeapons());
+				Collections.sort(arrayWeapons);
+				for (Weapon currentWeapon : arrayWeapons) 
 				{
 					weapons.put(index, currentWeapon.toJson());
 					index++;

@@ -16,7 +16,7 @@ import com.space.umad.entity.game.ship.CharacterShip;
 
 @Entity
 @Table(name = "spaceumad_weapon")
-public class Weapon 
+public class Weapon implements Comparable<Weapon>
 {
 	// Define
 	private static final String JSON_IDWEAPON = "idWeapon";
@@ -155,5 +155,11 @@ public class Weapon
 		}
 		
 		return json;
+	}
+
+	@Override
+	public int compareTo(Weapon o) 
+	{
+		return new Integer(this.mIdWeapon).compareTo(o.getIdWeapon());
 	}
 }

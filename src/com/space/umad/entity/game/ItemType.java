@@ -22,14 +22,14 @@ public class ItemType
 	public static final String JSON_IDITEMTYPE = "idItemType";
 	public static final String JSON_NAME = "name";
 	public static final String JSON_DESCRIPTION = "description";
-	public static final String JSON_LEAF = "leaf";
+	public static final String JSON_ICON = "icon";
 	public static final String JSON_IDPARENT = "idParent";
 	
 	public static final String CONFIG_IDITEMTYPE = "id";
 	public static final String CONFIG_NAME = "name";
 	public static final String CONFIG_DESCRIPTION = "description";
-	public static final String CONFIG_LEAF = "itemtype_parent";
-	public static final String CONFIG_IDPARENT = "itemtype_leaf";
+	public static final String CONFIG_ICON = "icon";
+	public static final String CONFIG_IDPARENT = "itemtype_parent";
 	
 	
 	// Attributs
@@ -39,10 +39,10 @@ public class ItemType
 	
 	private String mName;
 	private String mDescription;
-	private boolean mLeaf;
+	private String mIcon;
 	
 	@ManyToOne
-    @JoinColumn(name="mIdItemType", insertable = false, updatable = false)
+    @JoinColumn
     private ItemType mParent;
 	
 	
@@ -52,7 +52,7 @@ public class ItemType
 		this.mIdItemType = -1;
 		this.mName = "";
 		this.mDescription = "";
-		this.mLeaf = true;
+		this.mIcon = "0-0";
 		this.mParent = null;
 	}
 	
@@ -61,7 +61,7 @@ public class ItemType
 		this.setIdItemType(json.optInt(JSON_IDITEMTYPE, -1));
 		this.setName(json.optString(JSON_NAME, ""));
 		this.setDescription(json.optString(JSON_DESCRIPTION, ""));
-		this.setLeaf(json.optBoolean(JSON_LEAF, true));
+		this.setIcon(json.optString(JSON_ICON, "0-0"));
 		this.setParent(DaoFactory.getItemTypeDao().findById(json.optInt(JSON_IDPARENT, -1)));
 	}
 	
@@ -97,14 +97,14 @@ public class ItemType
 		this.mDescription = mDescription;
 	}
 
-	public boolean isLeaf() 
+	public String getIcon() 
 	{
-		return mLeaf;
+		return mIcon;
 	}
 
-	public void setLeaf(boolean mLeaf)
-{
-		this.mLeaf = mLeaf;
+	public void setIcon(String mIcon)
+	{
+		this.mIcon = mIcon;
 	}
 
 	public ItemType getParent() 
@@ -147,7 +147,7 @@ public class ItemType
 			json.put(JSON_IDITEMTYPE, this.getIdItemType());
 			json.put(JSON_NAME, this.getName());
 			json.put(JSON_DESCRIPTION, this.getDescription());
-			json.put(JSON_LEAF, this.isLeaf());
+			json.put(JSON_ICON, this.getIcon());
 			json.put(JSON_IDPARENT, this.getParent() != null ? this.getParent().getIdItemType() : -1);
 		}
 		catch(JSONException e)
