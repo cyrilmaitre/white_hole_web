@@ -27,6 +27,18 @@ import com.space.umad.tools.Constants;
 @Path("/character")
 public class CharacterResource
 {
+	// Define	
+	private static final int BASE_HANGARSPACE = 5;
+	private static final int BASE_CREDIT = 5000;
+	private static final int BASE_SHIPMODEL = 7;
+	private static final int BASE_SHIPWEAPON_COUNT = 2;
+	private static final int BASE_SHIPWEAPON_MODEL = 10;
+	private static final int BASE_SHIPWEAPON_AMMOMODEL = 1;
+	private static final int BASE_SHIPWEAPON_AMMOCOUNT = 100;
+	private static final String RESPONSEJSON_CHARACTER = "character";
+	
+	
+	// Methods
 	@POST 
 	@Path("/create")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -39,6 +51,8 @@ public class CharacterResource
 		{
 			Character newCharacter = new Character(new JSONObject(string));
 			newCharacter.setDateCreation(Calendar.getInstance());
+			newCharacter.setHangarSpace(BASE_HANGARSPACE);
+			newCharacter.setCredit(BASE_CREDIT);
 			newCharacter = DaoFactory.getCharacterDao().add(newCharacter);
 			boolean characterCreated = newCharacter.getIdCharacter() != -1;
 			
@@ -76,23 +90,26 @@ public class CharacterResource
 				newShip.setSkillPoints(0);
 				newShip.setPiloted(true);
 				newShip.setCharacter(newCharacter);
-				newShip.setShipModel((ShipModel) DaoFactory.getItemDao().findById(7));
+				newShip.setShipModel((ShipModel) DaoFactory.getItemDao().findById(BASE_SHIPMODEL));
 				newShip = DaoFactory.getCharacterShipDao().add(newShip);
 				
 				// Create weapon ship
 				Weapon basicWeapon = new Weapon();
 				basicWeapon.setActif(true);
-				basicWeapon.setAmmo((AmmoModel) DaoFactory.getItemDao().findById(1));
-				basicWeapon.setAmmoCount(50);
-				basicWeapon.setWeaponModel((WeaponModel) DaoFactory.getItemDao().findById(10));
+				basicWeapon.setAmmo((AmmoModel) DaoFactory.getItemDao().findById(BASE_SHIPWEAPON_AMMOMODEL));
+				basicWeapon.setAmmoCount(BASE_SHIPWEAPON_AMMOCOUNT);
+				basicWeapon.setWeaponModel((WeaponModel) DaoFactory.getItemDao().findById(BASE_SHIPWEAPON_MODEL));
 				basicWeapon.setCharacterShip(newShip);
-				for(int i = 0; i < 2; i++)
+				for(int i = 0; i < BASE_SHIPWEAPON_COUNT; i++)
 				{
 					basicWeapon.setIdWeapon(-1);
 					DaoFactory.getWeaponDao().add(basicWeapon);
 				}
 				
+				// Return
+				Character returnCharacter = DaoFactory.getCharacterDao().findById(newCharacter.getIdCharacter());
 				response.put("created", "true");
+				response.put(RESPONSEJSON_CHARACTER, returnCharacter.toJson());
 			}
 			else
 			{

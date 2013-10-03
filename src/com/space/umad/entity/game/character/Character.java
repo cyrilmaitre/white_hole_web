@@ -78,15 +78,15 @@ public class Character implements Comparable<Character>
     @JoinColumn(name="mIdUser")
     private User mUser;
 	
-	@OneToMany(mappedBy = "mCharacter", cascade={CascadeType.ALL})
+	@OneToMany(mappedBy = "mCharacter", cascade={CascadeType.MERGE})
 	@LazyCollection(LazyCollectionOption.FALSE)
     private Collection<CharacterSkill> mCharacterSkills;
 	
-	@OneToMany(mappedBy = "mCharacter", cascade={CascadeType.ALL})
+	@OneToMany(mappedBy = "mCharacter", cascade={CascadeType.MERGE})
 	@LazyCollection(LazyCollectionOption.FALSE)
     private Collection<CharacterBank> mCharacterBanks;
 	
-	@OneToMany(mappedBy = "mCharacter", cascade={CascadeType.ALL})
+	@OneToMany(mappedBy = "mCharacter", cascade={CascadeType.MERGE})
 	@LazyCollection(LazyCollectionOption.FALSE)
     private Collection<CharacterShip> mCharacterShip;
 	
