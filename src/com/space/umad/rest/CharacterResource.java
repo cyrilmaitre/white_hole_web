@@ -45,7 +45,7 @@ public class CharacterResource
 			JSONObject response = new JSONObject();
 			if(characterCreated)
 			{
-				// Create character skils
+				// Create character skills
 				for (CharacterSkill current : newCharacter.getCharacterSkills()) 
 				{
 					current.setCharacter(newCharacter);
@@ -70,8 +70,10 @@ public class CharacterResource
 				
 				// Create character ship
 				CharacterShip newShip = new CharacterShip();
+				newShip.setName("My ship");
 				newShip.setLevel(0);
 				newShip.setExperience(0);
+				newShip.setSkillPoints(0);
 				newShip.setPiloted(true);
 				newShip.setCharacter(newCharacter);
 				newShip.setShipModel((ShipModel) DaoFactory.getItemDao().findById(7));

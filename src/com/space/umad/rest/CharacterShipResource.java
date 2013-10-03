@@ -17,6 +17,11 @@ import com.space.umad.tools.Constants;
 @Path("/charactership")
 public class CharacterShipResource 
 {
+	// Define
+	public static final String RESPONSEKEY_CHARACTERSHIP = "charactership";
+		
+	
+	// Methods
 	@POST 
 	@Path("/create")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -27,8 +32,8 @@ public class CharacterShipResource
 		try 
 		{
 			// Add
-			CharacterShip character = new CharacterShip(new JSONObject(string));
-			DaoFactory.getCharacterShipDao().add(character);
+			CharacterShip characterShip = new CharacterShip(new JSONObject(string));
+			DaoFactory.getCharacterShipDao().add(characterShip);
 		
 			// Reponse
 			JSONObject response = new JSONObject();
@@ -64,12 +69,14 @@ public class CharacterShipResource
 		try 
 		{
 			// Update
-			CharacterShip character = new CharacterShip(new JSONObject(string));
-			DaoFactory.getCharacterShipDao().update(character);
+			CharacterShip characterShip = new CharacterShip(new JSONObject(string));
+			DaoFactory.getCharacterShipDao().update(characterShip);
+			characterShip = DaoFactory.getCharacterShipDao().findById(characterShip.getIdCharacterShip());			
 		
 			// Reponse
 			JSONObject response = new JSONObject();
 			response.put(Constants.RESULT_KEY, Constants.RESULT_OK);
+			response.put(RESPONSEKEY_CHARACTERSHIP, characterShip.toJson());
 			return response.toString();
 		}
 		catch(JSONException e)
@@ -100,8 +107,8 @@ public class CharacterShipResource
 		try 
 		{
 			// Remove
-			CharacterShip character = new CharacterShip(new JSONObject(string));
-			DaoFactory.getCharacterShipDao().remove(character.getIdCharacterShip());
+			CharacterShip characterShip = new CharacterShip(new JSONObject(string));
+			DaoFactory.getCharacterShipDao().remove(characterShip.getIdCharacterShip());
 		
 			// Reponse
 			JSONObject response = new JSONObject();

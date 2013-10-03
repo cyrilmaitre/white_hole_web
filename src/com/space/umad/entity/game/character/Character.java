@@ -30,13 +30,13 @@ import com.space.umad.entity.game.ship.CharacterShip;
 public class Character implements Comparable<Character> 
 {
 	// Define
-	public static final String JSON_IDCHARACTER = "idCharacter";
+	private static final String JSON_IDCHARACTER = "idCharacter";
 	private static final String JSON_NAME = "name";
 	private static final String JSON_AVATARID = "avatarId";
-	public static final String JSON_SKILLPOINTS = "skillPoints";
-	public static final String JSON_LEVEL = "level";
-	public static final String JSON_EXPERIENCE = "experience";
-	public static final String JSON_CREDIT = "credit";
+	private static final String JSON_SKILLPOINTS = "skillPoints";
+	private static final String JSON_LEVEL = "level";
+	private static final String JSON_EXPERIENCE = "experience";
+	private static final String JSON_CREDIT = "credit";
 	private static final String JSON_DATECREATION = "dateCreation";
 	private static final String JSON_TIMEPLAYED = "timePlayed";
 	private static final String JSON_ALIVE = "alive";
@@ -78,7 +78,7 @@ public class Character implements Comparable<Character>
     @JoinColumn(name="mIdUser")
     private User mUser;
 	
-	@OneToMany(mappedBy = "mCharacter")
+	@OneToMany(mappedBy = "mCharacter", cascade={CascadeType.ALL})
 	@LazyCollection(LazyCollectionOption.FALSE)
     private Collection<CharacterSkill> mCharacterSkills;
 	
@@ -86,7 +86,7 @@ public class Character implements Comparable<Character>
 	@LazyCollection(LazyCollectionOption.FALSE)
     private Collection<CharacterBank> mCharacterBanks;
 	
-	@OneToMany(mappedBy = "mCharacter")
+	@OneToMany(mappedBy = "mCharacter", cascade={CascadeType.ALL})
 	@LazyCollection(LazyCollectionOption.FALSE)
     private Collection<CharacterShip> mCharacterShip;
 	

@@ -17,7 +17,6 @@ public class DbInitWeaponModel
 			weaponmodel.setSpriteId("0-0");
 			weaponmodel.setItemType(DaoFactory.getItemTypeDao().findById(24));
 			weaponmodel.setItemTier(DaoFactory.getItemTierDao().findById(1));
-			weaponmodel.setWeaponType(DaoFactory.getWeaponTypeDao().findById(1));
 			DaoFactory.getWeaponModelDao().add(weaponmodel);
 		}
 		
@@ -31,7 +30,6 @@ public class DbInitWeaponModel
 			weaponmodel.setSpriteId("1-0");
 			weaponmodel.setItemType(DaoFactory.getItemTypeDao().findById(24));
 			weaponmodel.setItemTier(DaoFactory.getItemTierDao().findById(2));
-			weaponmodel.setWeaponType(DaoFactory.getWeaponTypeDao().findById(1));
 			DaoFactory.getWeaponModelDao().add(weaponmodel);
 		}
 		
@@ -45,7 +43,6 @@ public class DbInitWeaponModel
 			weaponmodel.setSpriteId("2-0");
 			weaponmodel.setItemType(DaoFactory.getItemTypeDao().findById(24));
 			weaponmodel.setItemTier(DaoFactory.getItemTierDao().findById(3));
-			weaponmodel.setWeaponType(DaoFactory.getWeaponTypeDao().findById(1));
 			DaoFactory.getWeaponModelDao().add(weaponmodel);
 		}
 		
@@ -59,7 +56,6 @@ public class DbInitWeaponModel
 			weaponmodel.setSpriteId("3-0");
 			weaponmodel.setItemType(DaoFactory.getItemTypeDao().findById(25));
 			weaponmodel.setItemTier(DaoFactory.getItemTierDao().findById(2));
-			weaponmodel.setWeaponType(DaoFactory.getWeaponTypeDao().findById(2));
 			DaoFactory.getWeaponModelDao().add(weaponmodel);
 		}
 		
@@ -73,7 +69,6 @@ public class DbInitWeaponModel
 			weaponmodel.setSpriteId("8-0");
 			weaponmodel.setItemType(DaoFactory.getItemTypeDao().findById(25));
 			weaponmodel.setItemTier(DaoFactory.getItemTierDao().findById(2));
-			weaponmodel.setWeaponType(DaoFactory.getWeaponTypeDao().findById(2));
 			DaoFactory.getWeaponModelDao().add(weaponmodel);
 		}
 		
@@ -87,7 +82,6 @@ public class DbInitWeaponModel
 			weaponmodel.setSpriteId("10-0");
 			weaponmodel.setItemType(DaoFactory.getItemTypeDao().findById(26));
 			weaponmodel.setItemTier(DaoFactory.getItemTierDao().findById(2));
-			weaponmodel.setWeaponType(DaoFactory.getWeaponTypeDao().findById(3));
 			DaoFactory.getWeaponModelDao().add(weaponmodel);
 		}
 		
@@ -101,7 +95,6 @@ public class DbInitWeaponModel
 			weaponmodel.setSpriteId("11-0");
 			weaponmodel.setItemType(DaoFactory.getItemTypeDao().findById(26));
 			weaponmodel.setItemTier(DaoFactory.getItemTierDao().findById(2));
-			weaponmodel.setWeaponType(DaoFactory.getWeaponTypeDao().findById(3));
 			DaoFactory.getWeaponModelDao().add(weaponmodel);
 		}
 	}

@@ -21,7 +21,6 @@ public class DbInitAmmoModel
 			ammomodel.setDamage(20);
 			ammomodel.setSplashRadius(5);
 			ammomodel.setAmmoType(DaoFactory.getAmmoTypeDao().findById(1));
-			ammomodel.setWeaponType(DaoFactory.getWeaponTypeDao().findById(1));
 			ammomodel.setVelocity(-1);
 			ammomodel.setQuickening(-1);
 			ammomodel.setProjectileColor("#FF0000");
@@ -44,7 +43,6 @@ public class DbInitAmmoModel
 			ammomodel.setDamage(20);
 			ammomodel.setSplashRadius(0);
 			ammomodel.setAmmoType(DaoFactory.getAmmoTypeDao().findById(2));
-			ammomodel.setWeaponType(DaoFactory.getWeaponTypeDao().findById(1));
 			ammomodel.setVelocity(-1);
 			ammomodel.setQuickening(-1);
 			ammomodel.setProjectileColor("#00FF00");
@@ -67,7 +65,6 @@ public class DbInitAmmoModel
 			ammomodel.setDamage(10);
 			ammomodel.setSplashRadius(0);
 			ammomodel.setAmmoType(DaoFactory.getAmmoTypeDao().findById(1));
-			ammomodel.setWeaponType(DaoFactory.getWeaponTypeDao().findById(2));
 			ammomodel.setVelocity(1250);
 			ammomodel.setQuickening(99999);
 			ammomodel.setProjectileColor("#009600");
@@ -90,7 +87,6 @@ public class DbInitAmmoModel
 			ammomodel.setDamage(10);
 			ammomodel.setSplashRadius(0);
 			ammomodel.setAmmoType(DaoFactory.getAmmoTypeDao().findById(1));
-			ammomodel.setWeaponType(DaoFactory.getWeaponTypeDao().findById(2));
 			ammomodel.setVelocity(1250);
 			ammomodel.setQuickening(99999);
 			ammomodel.setProjectileColor("#C80000");
@@ -113,7 +109,6 @@ public class DbInitAmmoModel
 			ammomodel.setDamage(20);
 			ammomodel.setSplashRadius(10);
 			ammomodel.setAmmoType(DaoFactory.getAmmoTypeDao().findById(1));
-			ammomodel.setWeaponType(DaoFactory.getWeaponTypeDao().findById(3));
 			ammomodel.setVelocity(800);
 			ammomodel.setQuickening(300);
 			ammomodel.setProjectileColor("#FFFFFF");
@@ -136,7 +131,6 @@ public class DbInitAmmoModel
 			ammomodel.setDamage(20);
 			ammomodel.setSplashRadius(10);
 			ammomodel.setAmmoType(DaoFactory.getAmmoTypeDao().findById(1));
-			ammomodel.setWeaponType(DaoFactory.getWeaponTypeDao().findById(3));
 			ammomodel.setVelocity(1000);
 			ammomodel.setQuickening(350);
 			ammomodel.setProjectileColor("#FFFFFF");

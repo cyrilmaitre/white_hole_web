@@ -16,12 +16,10 @@ import com.space.umad.dao.game.npc.NpcTypeDao;
 import com.space.umad.dao.game.ship.CharacterShipDao;
 import com.space.umad.dao.game.ship.CharacterShipItemStackDao;
 import com.space.umad.dao.game.ship.ShipModelDao;
-import com.space.umad.dao.game.ship.ShipTypeDao;
 import com.space.umad.dao.game.weapon.AmmoModelDao;
 import com.space.umad.dao.game.weapon.AmmoTypeDao;
 import com.space.umad.dao.game.weapon.WeaponDao;
 import com.space.umad.dao.game.weapon.WeaponModelDao;
-import com.space.umad.dao.game.weapon.WeaponTypeDao;
 import com.space.umad.dao.jpa.JpaPatchNoteDao;
 import com.space.umad.dao.jpa.JpaPatchNoteFeatureDao;
 import com.space.umad.dao.jpa.JpaUserDao;
@@ -41,12 +39,10 @@ import com.space.umad.dao.jpa.game.npc.JpaNpcTypeDao;
 import com.space.umad.dao.jpa.game.ship.JpaCharacterShipDao;
 import com.space.umad.dao.jpa.game.ship.JpaCharacterShipItemStackDao;
 import com.space.umad.dao.jpa.game.ship.JpaShipModelDao;
-import com.space.umad.dao.jpa.game.ship.JpaShipTypeDao;
 import com.space.umad.dao.jpa.game.weapon.JpaAmmoModelDao;
 import com.space.umad.dao.jpa.game.weapon.JpaAmmoTypeDao;
 import com.space.umad.dao.jpa.game.weapon.JpaWeaponDao;
 import com.space.umad.dao.jpa.game.weapon.JpaWeaponModelDao;
-import com.space.umad.dao.jpa.game.weapon.JpaWeaponTypeDao;
 import com.space.umad.tools.Constants;
 
 public class DaoFactory 
@@ -168,21 +164,6 @@ public class DaoFactory
 		return null;
 	}
 	
-	public static ShipTypeDao getShipTypeDao()
-	{
-		switch(Constants.TYPE_DAO_USED)
-		{
-		case TYPE_DAO_JPA:
-			return new JpaShipTypeDao();
-			
-		case TYPE_DAO_JDBC:
-			break;
-			
-		case TYPE_DAO_JAXB:
-			break;
-		}
-		return null;
-	}
 	
 	public static ShipModelDao getShipModelDao()
 	{
@@ -206,22 +187,6 @@ public class DaoFactory
 		{
 		case TYPE_DAO_JPA:
 			return new JpaAmmoTypeDao();
-			
-		case TYPE_DAO_JDBC:
-			break;
-			
-		case TYPE_DAO_JAXB:
-			break;
-		}
-		return null;
-	}
-	
-	public static WeaponTypeDao getWeaponTypeDao()
-	{
-		switch(Constants.TYPE_DAO_USED)
-		{
-		case TYPE_DAO_JPA:
-			return new JpaWeaponTypeDao();
 			
 		case TYPE_DAO_JDBC:
 			break;

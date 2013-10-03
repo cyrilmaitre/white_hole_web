@@ -17,7 +17,6 @@ public class DbInitShipModel
 			shipmodel.setSpriteId("0-0");
 			shipmodel.setItemType(DaoFactory.getItemTypeDao().findById(35));
 			shipmodel.setItemTier(DaoFactory.getItemTierDao().findById(1));
-			shipmodel.setShipType(DaoFactory.getShipTypeDao().findById(1));
 			DaoFactory.getShipModelDao().add(shipmodel);
 		}
 		
@@ -31,7 +30,6 @@ public class DbInitShipModel
 			shipmodel.setSpriteId("0-0");
 			shipmodel.setItemType(DaoFactory.getItemTypeDao().findById(35));
 			shipmodel.setItemTier(DaoFactory.getItemTierDao().findById(1));
-			shipmodel.setShipType(DaoFactory.getShipTypeDao().findById(1));
 			DaoFactory.getShipModelDao().add(shipmodel);
 		}
 		
@@ -45,7 +43,6 @@ public class DbInitShipModel
 			shipmodel.setSpriteId("0-0");
 			shipmodel.setItemType(DaoFactory.getItemTypeDao().findById(35));
 			shipmodel.setItemTier(DaoFactory.getItemTierDao().findById(1));
-			shipmodel.setShipType(DaoFactory.getShipTypeDao().findById(1));
 			DaoFactory.getShipModelDao().add(shipmodel);
 		}
 	}

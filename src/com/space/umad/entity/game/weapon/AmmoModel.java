@@ -25,7 +25,6 @@ public class AmmoModel extends Item
 	private final static String JSON_PROJECTILESIZE = "projectileSize";
 	private final static String JSON_IMPACTSIZE = "impactSize";
 	private final static String JSON_IDAMMOTYPE = "idAmmoType";
-	private final static String JSON_IDWEAPONTYPE = "idWeaponType";
 	
 	private final static String CONFIG_LIFETIME = "lifeTime";
 	private final static String CONFIG_DAMAGE = "damage";
@@ -36,7 +35,6 @@ public class AmmoModel extends Item
 	private final static String CONFIG_PROJECTILESIZE = "projectile_size";
 	private final static String CONFIG_IMPACTSIZE = "impact_size";
 	private final static String CONFIG_AMMOTYPE = "ammotype";
-	private final static String CONFIG_WEAPONTYPE = "weapontype";
 	
 	
 	// Attributs
@@ -49,14 +47,9 @@ public class AmmoModel extends Item
 	private int mProjectileSize;
 	private int mImpactSize;
 	
-	
 	@ManyToOne
     @JoinColumn(name="mIdAmmoType")
     private AmmoType mAmmoType;
-	
-	@ManyToOne
-    @JoinColumn(name="mIdWeaponType")
-    private WeaponType mWeaponType;
 
 	
 	// Constructor
@@ -71,7 +64,6 @@ public class AmmoModel extends Item
 		this.mProjectileSize = -1;
 		this.mImpactSize = -1;
 		this.mAmmoType = null;
-		this.mWeaponType = null;
 	}
 	
 	public AmmoModel(JSONObject json)
@@ -86,7 +78,6 @@ public class AmmoModel extends Item
 		this.setProjectileSize(json.optInt(JSON_PROJECTILESIZE, -1));
 		this.setImpactSize(json.optInt(JSON_IMPACTSIZE, -1));
 		this.setAmmoType(DaoFactory.getAmmoTypeDao().findById(json.optInt(JSON_IDAMMOTYPE, -1)));
-		this.setWeaponType(DaoFactory.getWeaponTypeDao().findById(json.optInt(JSON_IDWEAPONTYPE, -1)));
 	}
 
 		
@@ -181,16 +172,6 @@ public class AmmoModel extends Item
 		this.mAmmoType = mAmmoType;
 	}
 
-	public WeaponType getWeaponType()
-	{
-		return mWeaponType;
-	}
-
-	public void setWeaponType(WeaponType mWeaponType)
-	{
-		this.mWeaponType = mWeaponType;
-	}
-
 	
 	// Methods
 	public JSONObject toJson()
@@ -208,7 +189,6 @@ public class AmmoModel extends Item
 			json.put(JSON_PROJECTILESIZE, this.getProjectileSize());
 			json.put(JSON_IMPACTSIZE, this.getImpactSize());
 			json.put(JSON_IDAMMOTYPE, this.getAmmoType() != null ? this.getAmmoType().getIdAmmoType() : -1);
-			json.put(JSON_IDWEAPONTYPE, this.getWeaponType() != null ? this.getWeaponType().getIdWeaponType() : -1);
 		}
 		catch(JSONException e)
 		{

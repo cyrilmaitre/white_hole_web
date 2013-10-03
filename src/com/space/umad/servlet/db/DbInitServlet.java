@@ -30,8 +30,6 @@ public class DbInitServlet extends HttpServlet
 		DbInitJob.init();
 		DbInitRace.init();
 		DbInitSkill.init();
-		DbInitShipType.init();
-		DbInitWeaponType.init();
 		DbInitNpcType.init();
 
 		// Dependent objects
