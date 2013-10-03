@@ -61,7 +61,7 @@ public class CharacterShip
     @JoinColumn(name="mIdCharacter")
     private Character mCharacter;
 	
-	@OneToMany(mappedBy = "mCharacterShip", cascade={CascadeType.MERGE}, orphanRemoval = true)
+	@OneToMany(mappedBy = "mCharacterShip", cascade={CascadeType.ALL}, orphanRemoval = true)
 	@LazyCollection(LazyCollectionOption.FALSE)
     private Collection<Weapon> mWeapons;
 	
