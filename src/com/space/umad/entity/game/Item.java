@@ -29,6 +29,15 @@ public class Item
 	public static final String JSON_SPRITEID = "spriteId";
 	public static final String JSON_IDITEMTYPE = "idItemtType";
 	public static final String JSON_IDITEMTIER = "idItemTier";
+	public static final String JSON_BUYABLE = "buyable";
+	public static final String JSON_STOCKMINIMUMMIN = "stockminimum_min";
+	public static final String JSON_STOCKMINIMUMMAX = "stockminimum_max";
+	public static final String JSON_STOCKMAXIMUMMIN = "stockmaximum_min";
+	public static final String JSON_STOCKMAXIMUMMAX = "stockmaximum_max";
+	public static final String JSON_PRODUCTIONMIN = "production_min";
+	public static final String JSON_PRODUCTIONMAX = "production_max";
+	public static final String JSON_CONSUMPTIONMIN = "consumption_min";
+	public static final String JSON_CONSUMPTIONMAX = "consumption_max";
 	
 	public static final String CONFIG_IDITEM = "id";
 	public static final String CONFIG_NAME = "name";
@@ -38,6 +47,15 @@ public class Item
 	public static final String CONFIG_SPRITEID = "sprite";
 	public static final String CONFIG_ITEMTYPE = "itemtype";
 	public static final String CONFIG_ITEMTIER = "itemtier";
+	public static final String CONFIG_BUYABLE = "buyable";
+	public static final String CONFIG_STOCKMINIMUMMIN = "stockminimum_min";
+	public static final String CONFIG_STOCKMINIMUMMAX = "stockminimum_max";
+	public static final String CONFIG_STOCKMAXIMUMMIN = "stockmaximum_min";
+	public static final String CONFIG_STOCKMAXIMUMMAX = "stockmaximum_max";
+	public static final String CONFIG_PRODUCTIONMIN = "production_min";
+	public static final String CONFIG_PRODUCTIONMAX = "production_max";
+	public static final String CONFIG_CONSUMPTIONMIN = "consumption_min";
+	public static final String CONFIG_CONSUMPTIONMAX = "consumption_max";
 	
 	
 	// Attributs
@@ -50,6 +68,16 @@ public class Item
 	private float mPrice;
 	private int mStackMax;
 	private String mSpriteId;
+	private boolean mBuyable;
+	private long mStockMinimumMin;
+	private long mStockMinimumMax;
+	private long mStockMaximumMin;
+	private long mStockMaximumMax;
+	private float mProductionMin;
+	private float mProductionMax;
+	private float mConsumptionMin;
+	private float mConsumptionMax;
+	
 	
 	@ManyToOne
     @JoinColumn(name="mIdItemType")
@@ -71,6 +99,15 @@ public class Item
 		this.mSpriteId = null;
 		this.mItemType = null;
 		this.mItemTier = null;
+		this.mBuyable = true;
+		this.mStockMinimumMin = 0;
+		this.mStockMinimumMax = 0;
+		this.mStockMaximumMin = 0;
+		this.mStockMaximumMax = 0;
+		this.mProductionMin = 0;
+		this.mProductionMax = 0;
+		this.mConsumptionMin = 0;
+		this.mConsumptionMax = 0;
 	}
 	
 	public Item(JSONObject json)
@@ -83,6 +120,15 @@ public class Item
 		this.setSpriteId(json.optString(JSON_SPRITEID, null));
 		this.setItemType(DaoFactory.getItemTypeDao().findById(json.optInt(JSON_IDITEMTYPE, -1)));
 		this.setItemTier(DaoFactory.getItemTierDao().findById(json.optInt(JSON_IDITEMTIER, -1)));
+		this.setBuyable(json.optBoolean(JSON_BUYABLE, true));
+		this.setStockMinimumMin(json.optLong(JSON_STOCKMINIMUMMIN, 0));
+		this.setStockMinimumMax(json.optLong(CONFIG_STOCKMINIMUMMAX, 0));
+		this.setStockMaximumMin(json.optLong(JSON_STOCKMAXIMUMMIN, 0));
+		this.setStockMaximumMax(json.optLong(JSON_STOCKMAXIMUMMAX, 0));
+		this.setProductionMin((float)json.optDouble(JSON_PRODUCTIONMIN, 0));
+		this.setProductionMax((float)json.optDouble(JSON_PRODUCTIONMAX, 0));
+		this.setConsumptionMin((float)json.optDouble(CONFIG_CONSUMPTIONMIN, 0));
+		this.setConsumptionMax((float)json.optDouble(CONFIG_CONSUMPTIONMAX, 0));
 	}
 	
 	
@@ -167,6 +213,96 @@ public class Item
 		this.mItemTier = mItemTier;
 	}
 	
+	public boolean isBuyable() 
+	{
+		return mBuyable;
+	}
+
+	public void setBuyable(boolean mBuyable)
+	{
+		this.mBuyable = mBuyable;
+	}
+	
+	public long getStockMinimumMin()
+	{
+		return mStockMinimumMin;
+	}
+
+	public void setStockMinimumMin(long mStockMinimumMin) 
+	{
+		this.mStockMinimumMin = mStockMinimumMin;
+	}
+
+	public long getStockMinimumMax()
+	{
+		return mStockMinimumMax;
+	}
+
+	public void setStockMinimumMax(long mStockMinimumMax) 
+	{
+		this.mStockMinimumMax = mStockMinimumMax;
+	}
+
+	public long getStockMaximumMin()
+	{
+		return mStockMaximumMin;
+	}
+
+	public void setStockMaximumMin(long mStockMaximumMin) 
+	{
+		this.mStockMaximumMin = mStockMaximumMin;
+	}
+
+	public long getStockMaximumMax()
+	{
+		return mStockMaximumMax;
+	}
+
+	public void setStockMaximumMax(long mStockMaximumMax) 
+	{
+		this.mStockMaximumMax = mStockMaximumMax;
+	}
+	
+	public float getProductionMin() 
+	{
+		return mProductionMin;
+	}
+
+	public void setProductionMin(float mProductionMin) 
+	{
+		this.mProductionMin = mProductionMin;
+	}
+
+	public float getProductionMax() 
+	{
+		return mProductionMax;
+	}
+
+	public void setProductionMax(float mProductionMax) 
+	{
+		this.mProductionMax = mProductionMax;
+	}
+
+	public float getConsumptionMin() 
+	{
+		return mConsumptionMin;
+	}
+
+	public void setConsumptionMin(float mConsumptionMin) 
+	{
+		this.mConsumptionMin = mConsumptionMin;
+	}
+
+	public float getConsumptionMax() 
+	{
+		return mConsumptionMax;
+	}
+
+	public void setConsumptionMax(float mConsumptionMax)
+	{
+		this.mConsumptionMax = mConsumptionMax;
+	}
+
 	
 	// Methods
 	@Override
@@ -202,6 +338,15 @@ public class Item
 			json.put(JSON_SPRITEID, this.getSpriteId());
 			json.put(JSON_IDITEMTIER, this.getItemTier() != null ? this.getItemTier().getIdItemTier() : -1);
 			json.put(JSON_IDITEMTYPE, this.getItemType() != null ? this.getItemType().getIdItemType() : -1);
+			json.put(JSON_BUYABLE, this.isBuyable());
+			json.put(JSON_STOCKMINIMUMMIN, this.getStockMinimumMin());
+			json.put(JSON_STOCKMINIMUMMAX, this.getStockMinimumMax());
+			json.put(JSON_STOCKMAXIMUMMIN, this.getStockMaximumMin());
+			json.put(JSON_STOCKMAXIMUMMAX, this.getStockMaximumMax());
+			json.put(JSON_PRODUCTIONMIN, this.getProductionMin());
+			json.put(JSON_PRODUCTIONMAX, this.getProductionMax());
+			json.put(JSON_CONSUMPTIONMIN, this.getConsumptionMin());
+			json.put(JSON_CONSUMPTIONMAX, this.getConsumptionMax());
 		}
 		catch(JSONException e)
 		{

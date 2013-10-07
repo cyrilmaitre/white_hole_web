@@ -60,19 +60,29 @@
 		                    	</li>	
 							</c:when>
 						</c:choose>
+						
+						<c:choose>
+							<c:when test="${requestScope.isAdmin == true}">
+								<li class="divider-vertical"></li>
+								<li class="dropdown">
+		                    	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog icon-white"></i> Admin <b class="caret"></b></a>
+		                    		<ul class="dropdown-menu">
+		                      			<li><a href="${requestScope.linkPrefixe}/admin/ammo/add">Add ammo</a></li>
+		                      			<li><a href="${requestScope.linkPrefixe}/admin/weapon/add">Add weapon</a></li>
+		                      			<li><a href="${requestScope.linkPrefixe}/admin/configgen">Generation config</a></li>
+		                    		</ul>
+		                  		</li>
+							</c:when>
+						</c:choose>
 						<li class="divider-vertical"></li>
                 	</ul>	
                 	
                 	<c:choose>
 						<c:when test="${requestScope.isLogged == true}">
 							<ul class="nav pull-right">
-								<li class="divider-vertical"></li>
-								<li class="dropdown">
-		                    		<a href="${requestScope.linkPrefixe}/logged/waitercall/list">Login</a>
-		                    	</li>
 		                    	<li class="divider-vertical"></li>
 		                    	<li class="dropdown">
-		                    		<a href="${requestScope.linkPrefixe}/logged/waitercall/list">Register</a> 
+		                    		<a href="${requestScope.linkPrefixe}/logged/logout">Logout</a> 
 		                    	</li>
 		                    	<li class="divider-vertical"></li>
 							</ul>		

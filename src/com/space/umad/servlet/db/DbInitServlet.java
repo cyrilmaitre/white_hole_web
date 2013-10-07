@@ -25,17 +25,11 @@ public class DbInitServlet extends HttpServlet
 	{
 		// Independent objects
 		DbInitItemTier.init();
-		DbInitItemType.init();
 		DbInitAmmoType.init();
 		DbInitJob.init();
 		DbInitRace.init();
 		DbInitSkill.init();
 		DbInitNpcType.init();
-
-		// Dependent objects
-		DbInitAmmoModel.init();
-		DbInitShipModel.init();
-		DbInitWeaponModel.init();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 

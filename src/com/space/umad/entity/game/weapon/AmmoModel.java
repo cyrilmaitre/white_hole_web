@@ -19,22 +19,24 @@ public class AmmoModel extends Item
 	private final static String JSON_LIFETIME = "lifeTime";
 	private final static String JSON_DAMAGE = "damage";
 	private final static String JSON_SPLASHRADIUS = "splashradius";
+	private final static String JSON_IDAMMOTYPE = "idAmmoType";
 	private final static String JSON_VELOCITY = "velocity";
 	private final static String JSON_QUICKENING = "quickening";
-	private final static String JSON_PROJECTILECOLOR = "projectileColor";
-	private final static String JSON_PROJECTILESIZE = "projectileSize";
-	private final static String JSON_IMPACTSIZE = "impactSize";
-	private final static String JSON_IDAMMOTYPE = "idAmmoType";
+	private final static String JSON_PROJECTILETYPE = "projectile_type";
+	private final static String JSON_PROJECTILECOLOR = "projectile_color";
+	private final static String JSON_PROJECTILESCALE = "projectile_scale";
+	private final static String JSON_SOUNDFIRE = "sound_fire";
 	
 	private final static String CONFIG_LIFETIME = "lifeTime";
 	private final static String CONFIG_DAMAGE = "damage";
 	private final static String CONFIG_SPLASHRADIUS = "splashradius";
+	private final static String CONFIG_AMMOTYPE = "ammotype";
 	private final static String CONFIG_VELOCITY = "velocity";
 	private final static String CONFIG_QUICKENING = "quickening";
+	private final static String CONFIG_PROJECTILETYPE = "projectile_type";
 	private final static String CONFIG_PROJECTILECOLOR = "projectile_color";
-	private final static String CONFIG_PROJECTILESIZE = "projectile_size";
-	private final static String CONFIG_IMPACTSIZE = "impact_size";
-	private final static String CONFIG_AMMOTYPE = "ammotype";
+	private final static String CONFIG_PROJECTILESCALE = "projectile_scale";
+	private final static String CONFIG_SOUNDFIRE = "sound_fire";
 	
 	
 	// Attributs
@@ -43,9 +45,10 @@ public class AmmoModel extends Item
 	private double mSplashRadius;
 	private float mVelocity;
 	private float mQuickening;
+	private int mProjectileType;
 	private String mProjectileColor;
-	private int mProjectileSize;
-	private int mImpactSize;
+	private float mProjectileScale;
+	private String mSoundFire;
 	
 	@ManyToOne
     @JoinColumn(name="mIdAmmoType")
@@ -60,10 +63,11 @@ public class AmmoModel extends Item
 		this.mSplashRadius = -1;
 		this.mVelocity = -1;
 		this.mQuickening = -1;
-		this.mProjectileColor = null;
-		this.mProjectileSize = -1;
-		this.mImpactSize = -1;
 		this.mAmmoType = null;
+		this.mProjectileType = 0;
+		this.mProjectileColor = "#FFFFFF";
+		this.mProjectileScale = 1;
+		this.mSoundFire = "";
 	}
 	
 	public AmmoModel(JSONObject json)
@@ -72,12 +76,13 @@ public class AmmoModel extends Item
 		this.setLifeTime(json.optLong(JSON_LIFETIME, -1));
 		this.setDamage(json.optDouble(JSON_DAMAGE, -1));
 		this.setSplashRadius(json.optDouble(JSON_SPLASHRADIUS, -1));
+		this.setAmmoType(DaoFactory.getAmmoTypeDao().findById(json.optInt(JSON_IDAMMOTYPE, -1)));
 		this.setVelocity((float) json.optDouble(JSON_VELOCITY, -1));
 		this.setQuickening((float) json.optDouble(JSON_QUICKENING, -1));
-		this.setProjectileColor(json.optString(JSON_PROJECTILECOLOR, null));
-		this.setProjectileSize(json.optInt(JSON_PROJECTILESIZE, -1));
-		this.setImpactSize(json.optInt(JSON_IMPACTSIZE, -1));
-		this.setAmmoType(DaoFactory.getAmmoTypeDao().findById(json.optInt(JSON_IDAMMOTYPE, -1)));
+		this.setProjectileType(json.optInt(JSON_PROJECTILETYPE, 0));
+		this.setProjectileColor(json.optString(CONFIG_PROJECTILECOLOR, "#FFFFFF"));
+		this.setProjectileScale((float)json.optDouble(CONFIG_PROJECTILESCALE, 1));
+		this.setSoundFire(json.optString(JSON_SOUNDFIRE, ""));
 	}
 
 		
@@ -132,6 +137,26 @@ public class AmmoModel extends Item
 		this.mQuickening = mQuickening;
 	}
 
+	public AmmoType getAmmoType()
+	{
+		return mAmmoType;
+	}
+
+	public void setAmmoType(AmmoType mAmmoType)
+	{
+		this.mAmmoType = mAmmoType;
+	}
+	
+	public int getProjectileType() 
+	{
+		return mProjectileType;
+	}
+
+	public void setProjectileType(int mProjectileType)
+	{
+		this.mProjectileType = mProjectileType;
+	}
+
 	public String getProjectileColor()
 	{
 		return mProjectileColor;
@@ -142,34 +167,24 @@ public class AmmoModel extends Item
 		this.mProjectileColor = mProjectileColor;
 	}
 
-	public int getProjectileSize()
+	public float getProjectileScale() 
 	{
-		return mProjectileSize;
+		return mProjectileScale;
 	}
 
-	public void setProjectileSize(int mProjectileSize)
+	public void setProjectileScale(float mProjectileScale)
 	{
-		this.mProjectileSize = mProjectileSize;
+		this.mProjectileScale = mProjectileScale;
 	}
 
-	public int getImpactSize()
+	public String getSoundFire() 
 	{
-		return mImpactSize;
+		return mSoundFire;
 	}
 
-	public void setImpactSize(int mImpactSize)
+	public void setSoundFire(String mSoundFire) 
 	{
-		this.mImpactSize = mImpactSize;
-	}
-
-	public AmmoType getAmmoType()
-	{
-		return mAmmoType;
-	}
-
-	public void setAmmoType(AmmoType mAmmoType)
-{
-		this.mAmmoType = mAmmoType;
+		this.mSoundFire = mSoundFire;
 	}
 
 	
@@ -183,12 +198,13 @@ public class AmmoModel extends Item
 			json.put(JSON_LIFETIME, this.getLifeTime());
 			json.put(JSON_DAMAGE, this.getDamage());
 			json.put(JSON_SPLASHRADIUS, this.getSplashRadius());
+			json.put(JSON_IDAMMOTYPE, this.getAmmoType() != null ? this.getAmmoType().getIdAmmoType() : -1);
 			json.put(JSON_VELOCITY, this.getVelocity());
 			json.put(JSON_QUICKENING, this.getQuickening());
+			json.put(JSON_PROJECTILETYPE, this.getProjectileType());
 			json.put(JSON_PROJECTILECOLOR, this.getProjectileColor());
-			json.put(JSON_PROJECTILESIZE, this.getProjectileSize());
-			json.put(JSON_IMPACTSIZE, this.getImpactSize());
-			json.put(JSON_IDAMMOTYPE, this.getAmmoType() != null ? this.getAmmoType().getIdAmmoType() : -1);
+			json.put(JSON_PROJECTILESCALE, this.getProjectileScale());
+			json.put(JSON_SOUNDFIRE, this.getSoundFire());
 		}
 		catch(JSONException e)
 		{
