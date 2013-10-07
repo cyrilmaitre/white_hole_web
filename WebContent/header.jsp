@@ -69,7 +69,7 @@
 		                    		<ul class="dropdown-menu">
 		                      			<li><a href="${requestScope.linkPrefixe}/admin/ammo/add">Add ammo</a></li>
 		                      			<li><a href="${requestScope.linkPrefixe}/admin/weapon/add">Add weapon</a></li>
-		                      			<li><a href="${requestScope.linkPrefixe}/admin/configgen">Generation config</a></li>
+		                      			<li><a href="${requestScope.linkPrefixe}/admin/config/select">Generation config</a></li>
 		                    		</ul>
 		                  		</li>
 							</c:when>

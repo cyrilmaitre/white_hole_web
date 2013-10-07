@@ -302,6 +302,19 @@ public class Item
 	{
 		this.mConsumptionMax = mConsumptionMax;
 	}
+	
+	public void setVolume(float volume)
+	{
+		this.setStackMax((int)(10.f / volume));
+		this.setStockMinimumMin(this.getStackMax() * 5);
+		this.setStockMinimumMax(this.getStackMax() * 10);
+		this.setStockMaximumMin((long)(this.getStockMinimumMax() * 1.1));
+		this.setStockMaximumMax((long)(this.getStockMinimumMax() * 2));
+		this.setProductionMin(0);
+		this.setProductionMax(this.getStockMinimumMin());
+		this.setConsumptionMin(0);
+		this.setConsumptionMax(this.getStockMinimumMin());
+	}
 
 	
 	// Methods
@@ -324,7 +337,7 @@ public class Item
 		return this.getName();
 	}
 	
-	public JSONObject toJson()
+	public JSONObject toJsonItem()
 	{
 		JSONObject json = new JSONObject();
 		
@@ -354,5 +367,28 @@ public class Item
 		}
 		
 		return json;
+	}
+	
+	public String toConfigItem()
+	{
+		String config = "";
+		config += CONFIG_IDITEM + " = " + this.getIdItem() + "\n";
+		config += CONFIG_NAME + " = " + this.getName() + "\n";
+		config += CONFIG_DESCRIPTION + " = " + this.getDescription() + "\n";
+		config += CONFIG_PRICE + " = " + this.getPrice() + "\n";
+		config += CONFIG_STACKMAX + " = " + this.getStackMax() + "\n";
+		config += CONFIG_SPRITEID + " = " + this.getSpriteId() + "\n";
+		config += CONFIG_ITEMTYPE + " = " + this.getItemType().getIdItemType() + "\n";
+		config += CONFIG_ITEMTIER + " = " + this.getItemTier().getIdItemTier() + "\n";
+		config += CONFIG_BUYABLE + " = " + this.isBuyable() + "\n";
+		config += CONFIG_STOCKMINIMUMMIN + " = " + this.getStockMinimumMin() + "\n";
+		config += CONFIG_STOCKMINIMUMMAX + " = " + this.getStockMinimumMax() + "\n";
+		config += CONFIG_STOCKMAXIMUMMIN + " = " + this.getStockMaximumMin() + "\n";
+		config += CONFIG_STOCKMAXIMUMMAX + " = " + this.getStockMaximumMax() + "\n";
+		config += CONFIG_PRODUCTIONMIN + " = " + this.getProductionMin() + "\n";
+		config += CONFIG_PRODUCTIONMAX + " = " + this.getProductionMax() + "\n";
+		config += CONFIG_CONSUMPTIONMIN + " = " + this.getConsumptionMin() + "\n";
+		config += CONFIG_CONSUMPTIONMAX + " = " + this.getConsumptionMax();
+		return config;
 	}
 }

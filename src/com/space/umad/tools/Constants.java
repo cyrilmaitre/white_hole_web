@@ -22,6 +22,14 @@ public class Constants
 	// Db Init
 	public static final String LINK_DBINIT					= "/admin/dbinit";
 	
+	// Admin
+	public static final String LINK_CONFIGSELECT			= "/admin/config/select";
+	public static final String LINK_CONFIGSELECT_STATIC		= "/admin/config/configselect.jsp";
+	public static final String LINK_CONFIGAMMO				= "/admin/config/ammo";
+	public static final String LINK_CONFIGITEM				= "/admin/config/item";
+	public static final String LINK_AMMO_ADD				= "/admin/ammo/add";
+	public static final String LINK_AMMO_ADD_STATIC			= "/admin/ammo/ammoadd.jsp";
+	
 	// Divers
 	public static final String LINK_ABSOLUTE_PREFIXE 		= "/SpaceUMad";
 	public static final String PROJECT_NAME			 		= "/SpaceUMad";

@@ -189,9 +189,9 @@ public class AmmoModel extends Item
 
 	
 	// Methods
-	public JSONObject toJson()
+	public JSONObject toJsonAmmoModel()
 	{
-		JSONObject json = super.toJson();
+		JSONObject json = this.toJsonItem();
 		
 		try
 		{
@@ -212,5 +212,24 @@ public class AmmoModel extends Item
 		}
 		
 		return json;
+	}
+	
+	public String toConfigAmmoModel()
+	{
+		String config = "";
+		config += "# ITEM\n";
+		config += CONFIG_IDITEM + " = " + this.getIdItem() + "\n";
+		config += "# AMMO\n";
+		config += CONFIG_LIFETIME + " = " + this.getLifeTime() + "\n";
+		config += CONFIG_DAMAGE + " = " + this.getDamage() + "\n";
+		config += CONFIG_SPLASHRADIUS + " = " + this.getSplashRadius() + "\n";
+		config += CONFIG_AMMOTYPE + " = " + this.getAmmoType().getIdAmmoType() + "\n";
+		config += CONFIG_VELOCITY + " = " + this.getVelocity() + "\n";
+		config += CONFIG_QUICKENING + " = " + this.getQuickening() + "\n";
+		config += CONFIG_PROJECTILETYPE + " = " + this.getProjectileType() + "\n";
+		config += CONFIG_PROJECTILECOLOR + " = " + this.getProjectileColor() + "\n";
+		config += CONFIG_PROJECTILESCALE + " = " + this.getProjectileScale() + "\n";
+		config += CONFIG_SOUNDFIRE + " = " + this.getSoundFire();
+		return config;
 	}
 }
