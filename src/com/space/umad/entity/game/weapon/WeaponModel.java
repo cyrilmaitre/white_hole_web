@@ -190,7 +190,7 @@ public class WeaponModel extends Item
 		config += CONFIG_RELOADINGSPEED + " = " + this.getReloadingSpeed() + "\n";
 		config += CONFIG_FIRERATE + " = " + this.getFireRate() + "\n";
 		config += CONFIG_SOUNDRELOAD + " = " + this.getSoundReload() + "\n";
-		config += CONFIG_AMMOTYPEALLOWED + " = " + this.getAmmoTypeAllowed() + "\n";
+		config += CONFIG_AMMOTYPEALLOWED + " = " + this.getAmmoTypeAllowed();
 		return config;
 	}
 }

@@ -54,6 +54,7 @@ public class WeaponModelAddServlet extends HttpServlet
 			newWeaponModel.setName(name);
 			newWeaponModel.setDescription(description);
 			newWeaponModel.setVolume(Float.parseFloat(volume));
+			newWeaponModel.setStackMax(1); // Pre-defined value
 			newWeaponModel.setPrice(Float.parseFloat(price));
 			newWeaponModel.setSpriteId(sprite);
 			newWeaponModel.setItemType(DaoFactory.getItemTypeDao().findById(Integer.parseInt(itemtype)));

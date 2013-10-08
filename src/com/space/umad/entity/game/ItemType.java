@@ -165,7 +165,7 @@ public class ItemType
 		config += CONFIG_NAME + " = " + this.getName() + "\n";
 		config += CONFIG_DESCRIPTION + " = " + this.getDescription() + "\n";
 		config += CONFIG_ICON + " = " + this.getIcon() + "\n";
-		config += CONFIG_IDPARENT + " = " + this.getParent() != null ? this.getParent().getIdItemType() : "NULL" + "\n";
+		config += CONFIG_IDPARENT + " = " + (this.getParent() != null ? this.getParent().getIdItemType() : "NULL");
 		return config;
 	}
 }
