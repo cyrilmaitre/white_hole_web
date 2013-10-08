@@ -12,8 +12,10 @@
           	<div class="span10">
 	            <div class="clearfix">
 	                <ul>
-				    	<li><a href="${requestScope.linkPrefixe}/admin/config/ammo">Ammo Model config</a></li>
+				    	<li><a href="${requestScope.linkPrefixe}/admin/config/ammo">Ammo model config</a></li>
+				    	<li><a href="${requestScope.linkPrefixe}/admin/config/weaponmodel">Weapon model config</a></li>
 	              		<li><a href="${requestScope.linkPrefixe}/admin/config/item">Item config</a></li>
+	              		<li><a href="${requestScope.linkPrefixe}/admin/config/itemtype">Item type config</a></li>
 				    </ul>
 	            </div>
 			</div>

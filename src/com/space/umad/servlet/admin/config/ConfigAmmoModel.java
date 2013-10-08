@@ -12,38 +12,37 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.space.umad.dao.DaoFactory;
-import com.space.umad.entity.game.Item;
+import com.space.umad.entity.game.weapon.AmmoModel;
 import com.space.umad.tools.Constants;
 
-
-@WebServlet(Constants.LINK_CONFIGITEM)
-public class ConfigItem extends HttpServlet 
+@WebServlet(Constants.LINK_CONFIGAMMO)
+public class ConfigAmmoModel extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
-       
-    public ConfigItem() 
+
+    public ConfigAmmoModel()
     {
         super();
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		ZipOutputStream zipos = null;
 		ZipEntry ze = null;
 		
-		List<Item> items = DaoFactory.getItemDao().findAll();
+		List<AmmoModel> ammos = DaoFactory.getAmmoModelDao().findAll();
 		
 		try
 		{
 			zipos = new ZipOutputStream(response.getOutputStream());
 			response.setContentType("application/zip");
-			response.addHeader("Content-Disposition", "attachment; filename=item.zip");
+			response.addHeader("Content-Disposition", "attachment; filename=ammomodel.zip");
 		
-			for(Item current : items)
+			for(AmmoModel current : ammos)
 			{
-				ze = new ZipEntry("item-" + current.getIdItem());
+				ze = new ZipEntry("ammomodel-" + current.getIdItem());
 				zipos.putNextEntry(ze);
-				zipos.write(current.toConfigItem().getBytes());
+				zipos.write(current.toConfigAmmoModel().getBytes());
 				zipos.flush();
 			}
 		} 
@@ -55,10 +54,10 @@ public class ConfigItem extends HttpServlet
 		{ 
 			if(zipos != null)
 				zipos.close();
-		}
+		} 
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		doGet(request, response);
 	}

@@ -67,8 +67,9 @@
 								<li class="dropdown">
 		                    	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog icon-white"></i> Admin <b class="caret"></b></a>
 		                    		<ul class="dropdown-menu">
-		                      			<li><a href="${requestScope.linkPrefixe}/admin/ammo/add">Add ammo</a></li>
-		                      			<li><a href="${requestScope.linkPrefixe}/admin/weapon/add">Add weapon</a></li>
+		                      			<li><a href="${requestScope.linkPrefixe}/admin/ammo/add">Add ammo model </a></li>
+		                      			<li><a href="${requestScope.linkPrefixe}/admin/weaponmodel/add">Add weapon model</a></li>
+		                      			<li><a href="${requestScope.linkPrefixe}/admin/itemtype/add">Add item type</a></li>
 		                      			<li><a href="${requestScope.linkPrefixe}/admin/config/select">Generation config</a></li>
 		                    		</ul>
 		                  		</li>

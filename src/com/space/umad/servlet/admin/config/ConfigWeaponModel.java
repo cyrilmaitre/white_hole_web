@@ -12,16 +12,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.space.umad.dao.DaoFactory;
-import com.space.umad.entity.game.Item;
+import com.space.umad.entity.game.weapon.WeaponModel;
 import com.space.umad.tools.Constants;
 
 
-@WebServlet(Constants.LINK_CONFIGITEM)
-public class ConfigItem extends HttpServlet 
+@WebServlet(Constants.LINK_CONFIGWEAPON)
+public class ConfigWeaponModel extends HttpServlet 
 {
 	private static final long serialVersionUID = 1L;
        
-    public ConfigItem() 
+    public ConfigWeaponModel() 
     {
         super();
     }
@@ -31,19 +31,19 @@ public class ConfigItem extends HttpServlet
 		ZipOutputStream zipos = null;
 		ZipEntry ze = null;
 		
-		List<Item> items = DaoFactory.getItemDao().findAll();
+		List<WeaponModel> weaponmodels = DaoFactory.getWeaponModelDao().findAll();
 		
 		try
 		{
 			zipos = new ZipOutputStream(response.getOutputStream());
 			response.setContentType("application/zip");
-			response.addHeader("Content-Disposition", "attachment; filename=item.zip");
+			response.addHeader("Content-Disposition", "attachment; filename=weaponmodel.zip");
 		
-			for(Item current : items)
+			for(WeaponModel current : weaponmodels)
 			{
-				ze = new ZipEntry("item-" + current.getIdItem());
+				ze = new ZipEntry("weaponmodel-" + current.getIdItem());
 				zipos.putNextEntry(ze);
-				zipos.write(current.toConfigItem().getBytes());
+				zipos.write(current.toConfigWeapon().getBytes());
 				zipos.flush();
 			}
 		} 

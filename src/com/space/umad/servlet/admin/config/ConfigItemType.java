@@ -12,37 +12,38 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.space.umad.dao.DaoFactory;
-import com.space.umad.entity.game.weapon.AmmoModel;
+import com.space.umad.entity.game.ItemType;
 import com.space.umad.tools.Constants;
 
-@WebServlet(Constants.LINK_CONFIGAMMO)
-public class ConfigAmmo extends HttpServlet
+
+@WebServlet(Constants.LINK_CONFIGITEMTPE)
+public class ConfigItemType extends HttpServlet 
 {
 	private static final long serialVersionUID = 1L;
-
-    public ConfigAmmo()
+       
+    public ConfigItemType()
     {
         super();
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		ZipOutputStream zipos = null;
 		ZipEntry ze = null;
 		
-		List<AmmoModel> ammos = DaoFactory.getAmmoModelDao().findAll();
+		List<ItemType> itemtypes = DaoFactory.getItemTypeDao().findAll();
 		
 		try
 		{
 			zipos = new ZipOutputStream(response.getOutputStream());
 			response.setContentType("application/zip");
-			response.addHeader("Content-Disposition", "attachment; filename=ammomodel.zip");
+			response.addHeader("Content-Disposition", "attachment; filename=itemtype.zip");
 		
-			for(AmmoModel current : ammos)
+			for(ItemType current : itemtypes)
 			{
-				ze = new ZipEntry("ammomodel-" + current.getIdItem());
+				ze = new ZipEntry("itemtype-" + current.getIdItemType());
 				zipos.putNextEntry(ze);
-				zipos.write(current.toConfigAmmoModel().getBytes());
+				zipos.write(current.toConfig().getBytes());
 				zipos.flush();
 			}
 		} 
@@ -54,10 +55,10 @@ public class ConfigAmmo extends HttpServlet
 		{ 
 			if(zipos != null)
 				zipos.close();
-		} 
+		}
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		doGet(request, response);
 	}

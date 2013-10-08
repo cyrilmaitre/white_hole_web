@@ -27,8 +27,14 @@ public class Constants
 	public static final String LINK_CONFIGSELECT_STATIC		= "/admin/config/configselect.jsp";
 	public static final String LINK_CONFIGAMMO				= "/admin/config/ammo";
 	public static final String LINK_CONFIGITEM				= "/admin/config/item";
+	public static final String LINK_CONFIGITEMTPE			= "/admin/config/itemtype";
+	public static final String LINK_CONFIGWEAPON			= "/admin/config/weaponmodel";
 	public static final String LINK_AMMO_ADD				= "/admin/ammo/add";
 	public static final String LINK_AMMO_ADD_STATIC			= "/admin/ammo/ammoadd.jsp";
+	public static final String LINK_ITEMTYPE_ADD			= "/admin/itemtype/add";
+	public static final String LINK_ITEMTYPE_ADD_STATIC		= "/admin/itemtype/itemtypeadd.jsp";
+	public static final String LINK_WEAPONMODEL_ADD			= "/admin/weaponmodel/add";
+	public static final String LINK_WEAPONMODEL_ADD_STATIC	= "/admin/weaponmodel/weaponmodeladd.jsp";
 	
 	// Divers
 	public static final String LINK_ABSOLUTE_PREFIXE 		= "/SpaceUMad";

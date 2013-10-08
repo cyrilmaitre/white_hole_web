@@ -14,11 +14,11 @@ import com.space.umad.entity.game.weapon.AmmoModel;
 import com.space.umad.tools.Constants;
 
 @WebServlet(Constants.LINK_AMMO_ADD)
-public class AmmoAddServlet extends HttpServlet 
+public class AmmoModelAddServlet extends HttpServlet 
 {
 	private static final long serialVersionUID = 1L;
 
-    public AmmoAddServlet() 
+    public AmmoModelAddServlet() 
     {
         super();
     }

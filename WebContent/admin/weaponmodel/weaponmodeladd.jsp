@@ -5,7 +5,7 @@
 	<jsp:include page="/header.jsp" />
     
 	    <div class="page-header">
-          <h1>Add ammo model</h1>
+          <h1>Add weapon model</h1>
         </div>
 
 		<div class="row">
@@ -46,54 +46,44 @@
 		              	<input class="xlarge" id="itemtier" name="itemtier" size="25" type="text"/>
 		            </div>
 		            
-		            <label class="defaultLabel" for="lifetime">Life time:</label>
+		            <label class="defaultLabel" for="damagemultiplier">Damage multiplier:</label>
 		            <div class="clearfix">
-		              	<input class="xlarge" id="lifetime" name="lifetime" size="25" type="text" value="10"/>
+		              	<input class="xlarge" id="damagemultiplier" name="damagemultiplier" size="25" type="text"/>
 		            </div>
 		            
-		            <label class="defaultLabel" for="damage">Damage:</label>
+		            <label class="defaultLabel" for="ammomax">Ammo max:</label>
 		            <div class="clearfix">
-		              	<input class="xlarge" id="damage" name="damage" size="25" type="text"/>
+		              	<input class="xlarge" id="ammomax" name="ammomax" size="25" type="text"/>
 		            </div>
 		            
-		            <label class="defaultLabel" for="splashradius">Splash Radius:</label>
+		            <label class="defaultLabel" for="range">Range:</label>
 		            <div class="clearfix">
-		              	<input class="xlarge" id="splashradius" name="splashradius" size="25" type="text" value="1"/>
+		              	<input class="xlarge" id="range" name="range" size="25" type="text"/>
 		            </div>
 		            
-		            <label class="defaultLabel" for="ammotype">Ammo type:</label>
+		            <label class="defaultLabel" for="rangeangle">Range angle:</label>
 		            <div class="clearfix">
-		              	<input class="xlarge" id="ammotype" name="ammotype" size="25" type="text"/>
+		              	<input class="xlarge" id="rangeangle" name="rangeangle" size="25" type="text"/>
 		            </div>
 		            
-		            <label class="defaultLabel" for="velocity">Velocity:</label>
+		            <label class="defaultLabel" for="reloadingspeed">Reloading speed:</label>
 		            <div class="clearfix">
-		              	<input class="xlarge" id="velocity" name="velocity" size="25" type="text" value="1000"/>
+		              	<input class="xlarge" id="reloadingspeed" name="reloadingspeed" size="25" type="text"/>
 		            </div>
 		            
-		            <label class="defaultLabel" for="quickening">Quickening:</label>
+		            <label class="defaultLabel" for="firerate">Firerate:</label>
 		            <div class="clearfix">
-		              	<input class="xlarge" id="quickening" name="quickening" size="25" type="text" value="2500"/>
+		              	<input class="xlarge" id="firerate" name="firerate" size="25" type="text"/>
 		            </div>
 		            
-		            <label class="defaultLabel" for="projectiletype">Projectile type:</label>
+		            <label class="defaultLabel" for="soundreload">Sound reload:</label>
 		            <div class="clearfix">
-		              	<input class="xlarge" id="projectiletype" name="projectiletype" size="25" type="text" value="4"/>
+		              	<input class="xlarge" id="soundreload" name="soundreload" size="25" type="text" value="weapon_kinetic_reload.wav"/>
 		            </div>
 		            
-		            <label class="defaultLabel" for="projectilecolor">Projectile color:</label>
+		            <label class="defaultLabel" for="ammotypeallowed">Ammo type allowed:</label>
 		            <div class="clearfix">
-		              	<input class="xlarge" id="projectilecolor" name="projectilecolor" size="25" type="text" value="#FFFFFF"/>
-		            </div>
-		            
-		            <label class="defaultLabel" for="projectilescale">Projectile scale:</label>
-		            <div class="clearfix">
-		              	<input class="xlarge" id="projectilescale" name="projectilescale" size="25" type="text" value="1"/>
-		            </div>
-		            
-		            <label class="defaultLabel" for="soundfire">Sound fire:</label>
-		            <div class="clearfix">
-		              	<input class="xlarge" id="soundfire" name="soundfire" size="25" type="text" value="weapon_kinetic_1.wav"/>
+		              	<input class="xlarge" id="ammotypeallowed" name="ammotypeallowed" size="25" type="text" value="0"/>
 		            </div>
 		            
 		            <div class="defaultButtonForm"><button class="btn primary" type="submit">Submit</button></div>

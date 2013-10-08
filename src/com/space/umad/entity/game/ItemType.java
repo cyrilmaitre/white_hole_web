@@ -157,4 +157,15 @@ public class ItemType
 		
 		return json;
 	}
+	
+	public String toConfig()
+	{
+		String config = "";
+		config += CONFIG_IDITEMTYPE + " = " + this.getIdItemType() + "\n";
+		config += CONFIG_NAME + " = " + this.getName() + "\n";
+		config += CONFIG_DESCRIPTION + " = " + this.getDescription() + "\n";
+		config += CONFIG_ICON + " = " + this.getIcon() + "\n";
+		config += CONFIG_IDPARENT + " = " + this.getParent() != null ? this.getParent().getIdItemType() : "NULL" + "\n";
+		return config;
+	}
 }
