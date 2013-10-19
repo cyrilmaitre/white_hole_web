@@ -255,27 +255,33 @@ public class CharacterShip
 			
 			JSONArray weapons = new JSONArray();
 			{
-				int index = 0;
-				ArrayList<Weapon> arrayWeapons = new ArrayList<Weapon>(this.getWeapons());
-				Collections.sort(arrayWeapons);
-				for (Weapon currentWeapon : arrayWeapons) 
+				if(this.getWeapons() != null)
 				{
-					weapons.put(index, currentWeapon.toJson());
-					index++;
+					int index = 0;
+					ArrayList<Weapon> arrayWeapons = new ArrayList<Weapon>(this.getWeapons());
+					Collections.sort(arrayWeapons);
+					for (Weapon currentWeapon : arrayWeapons) 
+					{
+						weapons.put(index, currentWeapon.toJson());
+						index++;
+					}
 				}
 			}
 			json.put(JSON_WEAPONS, weapons);
 			
 			JSONArray itemStacks = new JSONArray();
 			{
-				int index = 0;
-				for (CharacterShipItemStack currentStack : this.getItemStacks()) 
+				if(this.getItemStacks() != null)
 				{
-					if(currentStack.getItemStack() != null)
+					int index = 0;
+					for (CharacterShipItemStack currentStack : this.getItemStacks()) 
 					{
-						itemStacks.put(index, currentStack.toJson());
-						index++;
-					}
+						if(currentStack.getItemStack() != null)
+						{
+							itemStacks.put(index, currentStack.toJson());
+							index++;
+						}
+					}	
 				}
 			}
 			json.put(JSON_ITEMSTACKS, itemStacks);

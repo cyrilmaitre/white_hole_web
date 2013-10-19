@@ -12,6 +12,7 @@ import org.codehaus.jettison.json.JSONObject;
 
 import com.space.umad.dao.DaoFactory;
 import com.space.umad.entity.game.ship.CharacterShip;
+import com.space.umad.entity.game.ship.ShipModel;
 import com.space.umad.tools.Constants;
 
 @Path("/charactership")
@@ -33,11 +34,20 @@ public class CharacterShipResource
 		{
 			// Add
 			CharacterShip characterShip = new CharacterShip(new JSONObject(string));
-			DaoFactory.getCharacterShipDao().add(characterShip);
-		
+			CharacterShip newShip = new CharacterShip();
+			newShip.setName(characterShip.getName());
+			newShip.setLevel(characterShip.getLevel());
+			newShip.setExperience(characterShip.getExperience());
+			newShip.setSkillPoints(characterShip.getSkillPoints());
+			newShip.setPiloted(characterShip.isPiloted());
+			newShip.setCharacter(characterShip.getCharacter());
+			newShip.setShipModel(characterShip.getShipModel());
+			newShip = DaoFactory.getCharacterShipDao().add(newShip);
+
 			// Reponse
 			JSONObject response = new JSONObject();
 			response.put(Constants.RESULT_KEY, Constants.RESULT_OK);
+			response.put(RESPONSEKEY_CHARACTERSHIP, newShip.toJson());
 			return response.toString();
 		}
 		catch(JSONException e)
