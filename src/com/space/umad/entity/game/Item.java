@@ -305,7 +305,11 @@ public class Item
 	
 	public void setVolume(float volume)
 	{
-		this.setStackMax((int)(10.f / volume));
+		int stackMax = (int)(10.f / volume);
+		if(stackMax < 1)
+			stackMax = 1;
+		
+		this.setStackMax(stackMax);
 		this.setStockMinimumMin(this.getStackMax() * 5);
 		this.setStockMinimumMax(this.getStackMax() * 10);
 		this.setStockMaximumMin((long)(this.getStockMinimumMax() * 1.1));
