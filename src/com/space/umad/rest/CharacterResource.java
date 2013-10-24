@@ -26,7 +26,7 @@ public class CharacterResource
 {
 	// Define	
 	private static final int BASE_HANGARSPACE = 5;
-	private static final int BASE_CREDIT = 5000;
+	private static final int BASE_CREDIT = 100000;
 	private static final int BASE_SHIPMODEL = 7;
 	private static final int BASE_SHIPWEAPON_COUNT = 2;
 	private static final int BASE_SHIPWEAPON_MODEL = 10;
