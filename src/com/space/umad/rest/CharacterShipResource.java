@@ -12,7 +12,6 @@ import org.codehaus.jettison.json.JSONObject;
 
 import com.space.umad.dao.DaoFactory;
 import com.space.umad.entity.game.ship.CharacterShip;
-import com.space.umad.entity.game.ship.ShipModel;
 import com.space.umad.tools.Constants;
 
 @Path("/charactership")

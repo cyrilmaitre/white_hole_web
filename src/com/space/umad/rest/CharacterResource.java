@@ -18,9 +18,6 @@ import com.space.umad.entity.game.character.CharacterBank;
 import com.space.umad.entity.game.character.CharacterSkill;
 import com.space.umad.entity.game.ship.CharacterShip;
 import com.space.umad.entity.game.ship.ShipModel;
-import com.space.umad.entity.game.weapon.AmmoModel;
-import com.space.umad.entity.game.weapon.Weapon;
-import com.space.umad.entity.game.weapon.WeaponModel;
 import com.space.umad.tools.Constants;
 
 
@@ -94,18 +91,10 @@ public class CharacterResource
 				newShip = DaoFactory.getCharacterShipDao().add(newShip);
 				
 				// Create weapon ship
-				Weapon basicWeapon = new Weapon();
-				basicWeapon.setActif(true);
-				basicWeapon.setAmmo((AmmoModel) DaoFactory.getItemDao().findById(BASE_SHIPWEAPON_AMMOMODEL));
-				basicWeapon.setAmmoCount(BASE_SHIPWEAPON_AMMOCOUNT);
-				basicWeapon.setWeaponModel((WeaponModel) DaoFactory.getItemDao().findById(BASE_SHIPWEAPON_MODEL));
-				basicWeapon.setCharacterShip(newShip);
-				for(int i = 0; i < BASE_SHIPWEAPON_COUNT; i++)
-				{
-					basicWeapon.setIdWeapon(-1);
-					DaoFactory.getWeaponDao().add(basicWeapon);
-				}
-				
+				/*
+				 * Create JSON Weapons here
+				 */
+
 				// Return
 				Character returnCharacter = DaoFactory.getCharacterDao().findById(newCharacter.getIdCharacter());
 				response.put("created", "true");

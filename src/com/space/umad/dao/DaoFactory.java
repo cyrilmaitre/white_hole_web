@@ -18,7 +18,6 @@ import com.space.umad.dao.game.ship.CharacterShipItemStackDao;
 import com.space.umad.dao.game.ship.ShipModelDao;
 import com.space.umad.dao.game.weapon.AmmoModelDao;
 import com.space.umad.dao.game.weapon.AmmoTypeDao;
-import com.space.umad.dao.game.weapon.WeaponDao;
 import com.space.umad.dao.game.weapon.WeaponModelDao;
 import com.space.umad.dao.jpa.JpaPatchNoteDao;
 import com.space.umad.dao.jpa.JpaPatchNoteFeatureDao;
@@ -41,7 +40,6 @@ import com.space.umad.dao.jpa.game.ship.JpaCharacterShipItemStackDao;
 import com.space.umad.dao.jpa.game.ship.JpaShipModelDao;
 import com.space.umad.dao.jpa.game.weapon.JpaAmmoModelDao;
 import com.space.umad.dao.jpa.game.weapon.JpaAmmoTypeDao;
-import com.space.umad.dao.jpa.game.weapon.JpaWeaponDao;
 import com.space.umad.dao.jpa.game.weapon.JpaWeaponModelDao;
 import com.space.umad.tools.Constants;
 
@@ -219,22 +217,6 @@ public class DaoFactory
 		{
 		case TYPE_DAO_JPA:
 			return new JpaWeaponModelDao();
-			
-		case TYPE_DAO_JDBC:
-			break;
-			
-		case TYPE_DAO_JAXB:
-			break;
-		}
-		return null;
-	}
-	
-	public static WeaponDao getWeaponDao()
-	{
-		switch(Constants.TYPE_DAO_USED)
-		{
-		case TYPE_DAO_JPA:
-			return new JpaWeaponDao();
 			
 		case TYPE_DAO_JDBC:
 			break;

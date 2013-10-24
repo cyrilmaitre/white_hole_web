@@ -2,9 +2,7 @@ package com.space.umad.entity.game.ship;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,7 +20,6 @@ import org.hibernate.annotations.LazyCollectionOption;
 
 import com.space.umad.dao.DaoFactory;
 import com.space.umad.entity.game.character.Character;
-import com.space.umad.entity.game.weapon.Weapon;
 
 
 @Entity
@@ -52,6 +49,7 @@ public class CharacterShip
 	private int mLevel;
 	private int mExperience;
 	private boolean mPiloted;
+	private String mWeapons;
 	
 	@ManyToOne
     @JoinColumn(name="mIdShipModel")
@@ -60,10 +58,6 @@ public class CharacterShip
 	@ManyToOne
     @JoinColumn(name="mIdCharacter")
     private Character mCharacter;
-	
-	@OneToMany(mappedBy = "mCharacterShip", cascade={CascadeType.ALL}, orphanRemoval = true)
-	@LazyCollection(LazyCollectionOption.FALSE)
-    private Collection<Weapon> mWeapons;
 	
 	@OneToMany(mappedBy = "mCharacterShip")
 	@LazyCollection(LazyCollectionOption.FALSE)
@@ -78,6 +72,7 @@ public class CharacterShip
 		this.mSkillPoints = 0;
 		this.mLevel = 0;
 		this.mExperience = 0;
+		this.mWeapons = "";
 		this.mPiloted = true;
 		this.mShipModel = null;
 	}
@@ -90,9 +85,9 @@ public class CharacterShip
 		this.setLevel(json.optInt(JSON_LEVEL, 0));
 		this.setExperience(json.optInt(JSON_EXPERIENCE, 0));
 		this.setPiloted(json.optBoolean(JSON_PILOTED, false));
+		this.setWeapons(json.optString(JSON_WEAPONS, ""));
 		this.setShipModel(DaoFactory.getShipModelDao().findById(json.optInt(JSON_IDSHIPMODEL, -1)));
 		this.setCharacter(DaoFactory.getCharacterDao().findById(json.optInt(JSON_IDCHARACTER, -1)));
-		this.setWeapons(json.optJSONArray(JSON_WEAPONS));
 		this.setItemStacks(json.optJSONArray(JSON_ITEMSTACKS));
 	}
 
@@ -178,30 +173,16 @@ public class CharacterShip
 		this.mCharacter = mCharacter;
 	}
 	
-	public Collection<Weapon> getWeapons() 
+	public String getWeapons() 
 	{
 		return mWeapons;
 	}
 
-	public void setWeapons(Collection<Weapon> mWeapons)
+	public void setWeapons(String mWeapons) 
 	{
 		this.mWeapons = mWeapons;
 	}
-	
-	public void setWeapons(JSONArray json)
-	{
-		if(this.mWeapons == null)
-			this.mWeapons = new ArrayList<Weapon>();
-		
-		if(json != null)
-		{
-			for(int i = 0; i < json.length(); i++)
-			{
-				this.mWeapons.add(new Weapon(json.optJSONObject(i)));
-			}
-		}
-	}
-	
+
 	public Collection<CharacterShipItemStack> getItemStacks() 
 	{
 		return mItemStacks;
@@ -250,24 +231,9 @@ public class CharacterShip
 			json.put(JSON_LEVEL, this.getLevel());
 			json.put(JSON_EXPERIENCE, this.getExperience());
 			json.put(JSON_PILOTED, this.isPiloted());
+			json.put(JSON_WEAPONS, this.getWeapons());
 			json.put(JSON_IDSHIPMODEL, this.getShipModel() != null ? this.getShipModel().getIdItem() : -1);
 			json.put(JSON_IDCHARACTER, this.getCharacter() != null ? this.getCharacter().getIdCharacter() : -1);
-			
-			JSONArray weapons = new JSONArray();
-			{
-				if(this.getWeapons() != null)
-				{
-					int index = 0;
-					ArrayList<Weapon> arrayWeapons = new ArrayList<Weapon>(this.getWeapons());
-					Collections.sort(arrayWeapons);
-					for (Weapon currentWeapon : arrayWeapons) 
-					{
-						weapons.put(index, currentWeapon.toJson());
-						index++;
-					}
-				}
-			}
-			json.put(JSON_WEAPONS, weapons);
 			
 			JSONArray itemStacks = new JSONArray();
 			{
