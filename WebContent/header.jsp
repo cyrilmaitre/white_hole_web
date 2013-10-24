@@ -69,6 +69,7 @@
 		                    		<ul class="dropdown-menu">
 		                      			<li><a href="${requestScope.linkPrefixe}/admin/ammo/add">Add ammo model </a></li>
 		                      			<li><a href="${requestScope.linkPrefixe}/admin/weaponmodel/add">Add weapon model</a></li>
+		                      			<li><a href="${requestScope.linkPrefixe}/admin/shipmodel/add">Add ship model</a></li>
 		                      			<li><a href="${requestScope.linkPrefixe}/admin/itemtype/add">Add item type</a></li>
 		                      			<li><a href="${requestScope.linkPrefixe}/admin/config/select">Generation config</a></li>
 		                    		</ul>

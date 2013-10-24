@@ -14,6 +14,7 @@
 	                <ul>
 				    	<li><a href="${requestScope.linkPrefixe}/admin/config/ammo">Ammo model config</a></li>
 				    	<li><a href="${requestScope.linkPrefixe}/admin/config/weaponmodel">Weapon model config</a></li>
+				    	<li><a href="${requestScope.linkPrefixe}/admin/config/shipmodel">Ship model config</a></li>
 	              		<li><a href="${requestScope.linkPrefixe}/admin/config/item">Item config</a></li>
 	              		<li><a href="${requestScope.linkPrefixe}/admin/config/itemtype">Item type config</a></li>
 				    </ul>

@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.space.umad.dao.DaoFactory;
-import com.space.umad.entity.game.ItemType;
 import com.space.umad.entity.game.weapon.WeaponModel;
 import com.space.umad.tools.Constants;
 
